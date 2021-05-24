@@ -83,7 +83,7 @@ function App() {
             // - if logged in, redirects to "/user"
             // - else shows LoginPage at /login
             exact
-            path="/login"
+            path="/home"
             authRedirect="/user"
           >
             <LoginPage />
