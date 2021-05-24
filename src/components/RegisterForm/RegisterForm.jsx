@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Typography, TextField, AppBar, Card, CardActions, 
-  CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container, Button } 
-  from '@material-ui/core';
-import WeekendTwoToneIcon from '@material-ui/icons/WeekendTwoTone';
+import { TextField } from '@material-ui/core';
 
 
 function RegisterForm() {

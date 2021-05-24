@@ -2,6 +2,7 @@ import { use } from 'passport';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
+import { TextField } from '@material-ui/core';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -34,7 +35,7 @@ function LoginForm() {
         </h3>
       )}
       <div>
-        <label htmlFor="username">
+        <TextField id="outlined-basic" label="username" variant="outlined">
           Username:
           <input
             type="text"
@@ -43,10 +44,10 @@ function LoginForm() {
             value={username}
             onChange={(event) => setUsername(event.target.value)}
           />
-        </label>
+        </TextField>
       </div>
       <div>
-        <label htmlFor="password">
+        <TextField id="outlined-basic" label="password" variant="outlined">
           Password:
           <input
             type="password"
@@ -55,7 +56,7 @@ function LoginForm() {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
-        </label>
+        </TextField>
       </div>
       <div>
         <input className="btn" type="submit" name="submit" value="Log In" />
