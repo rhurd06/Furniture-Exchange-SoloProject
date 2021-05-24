@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Typography, TextField, AppBar, Card, CardActions, 
+  CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container, Button } 
+  from '@material-ui/core';
+import WeekendTwoToneIcon from '@material-ui/icons/WeekendTwoTone';
 
 
 function RegisterForm() {
@@ -33,7 +37,7 @@ function RegisterForm() {
         </h3>
       )}
       <div>
-        <label htmlFor="username">
+        <TextField id="outlined-basic" label="username" variant="outlined" >
           Username:
           <input
             type="text"
@@ -42,10 +46,10 @@ function RegisterForm() {
             required
             onChange={(event) => setUsername(event.target.value)}
           />
-        </label>
+        </TextField>
       </div>
       <div>
-        <label htmlFor="email">
+        <TextField id="outlined-basic" label="email" variant="outlined" >
           Email:
           <input
             type="text"
@@ -54,10 +58,10 @@ function RegisterForm() {
             required
             onChange={(event) => setEmail(event.target.value)}
           />
-        </label>
+        </TextField>
       </div>
       <div>
-        <label htmlFor="phoneNumber">
+        <TextField id="outlined-basic" label="phoneNumber" variant="outlined">
           Phone Number:
           <input
             type="text"
@@ -65,10 +69,10 @@ function RegisterForm() {
             value={phoneNumber}
             onChange={(event) => setPhoneNumber(event.target.value)}
           />
-        </label>
+        </TextField>
       </div>
       <div>
-        <label htmlFor="password">
+        <TextField id="outlined-basic" label="password" variant="outlined">
           Password:
           <input
             type="password"
@@ -77,7 +81,7 @@ function RegisterForm() {
             required
             onChange={(event) => setPassword(event.target.value)}
           />
-        </label>
+        </TextField>
       </div>
       <div>
         <input className="btn" type="submit" name="submit" value="Register" />
