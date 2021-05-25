@@ -23,6 +23,8 @@ CREATE TABLE "furniture" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" int REFERENCES "user",
 	"picture_url" VARCHAR (5000),
+	"cost" numeric(3,2),
+	"location" VARCHAR (100),
 	"description" VARCHAR (5000),
 	"furniture_type_id" int REFERENCES "furniture_type",
 	"sold" BOOLEAN DEFAULT FALSE
