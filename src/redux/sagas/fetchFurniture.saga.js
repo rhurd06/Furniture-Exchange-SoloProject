@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function* fetchFurniture() {
     try {
-        const furniture = yield axios.get('/furniture');
+        const furniture = yield axios.get('/api/furniture');
         console.log('get all', furniture.data);
         yield put({ type: 'SET_FURNITURE', payload: furniture.data });
     }
