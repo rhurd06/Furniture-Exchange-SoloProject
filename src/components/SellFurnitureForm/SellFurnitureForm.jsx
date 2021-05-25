@@ -4,10 +4,13 @@ import { useHistory } from 'react-router';
 
 //Material UI
 import { MenuItem, TextField } from '@material-ui/core';
+import useStyles from './styles';
 
 const SellFurnitureForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const classes = useStyles();
 
     const [imageUrl, setImageUrl] = useState('');
     const [cost, setCost] = useState('');
@@ -37,6 +40,7 @@ const SellFurnitureForm = () => {
         setDescription('');
         setPreferredContact('');
         setUsername('');
+        setFurnitureType('');
     };
 
     const handleChange = (event) => {
@@ -98,7 +102,7 @@ const SellFurnitureForm = () => {
               />
             </TextField>
           </div>
-          <div>
+          <div className={classes.root}>
                 <TextField id="outlined-select" select label="furnitureType"
                     value={furnitureType} onChange={handleChange} variant="outlined"
                 >

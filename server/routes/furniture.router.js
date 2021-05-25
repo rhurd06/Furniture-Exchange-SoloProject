@@ -15,10 +15,10 @@ router.get('/', (req, res) => {
         })
 });
 
-router.post('/', (req, res) => {
-    console.log(req.body);
-    // RETURNING "id" will give us back the id of the furniture item added 
-    const query = `INSERT INTO "furniture" (picture_url, cost, location, description, furniture_type)`
-})
+// router.post('/', (req, res) => {
+//     console.log(req.body);
+//     // RETURNING "id" will give us back the id of the furniture item added 
+//     const query = `INSERT INTO "furniture" (picture_url, cost, location, description, furniture_type)`
+// })
 
 module.exports = router;
