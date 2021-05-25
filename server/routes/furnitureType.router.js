@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
     const query = `SELECT * FROM "furniture_type" ORDER BY "id" ASC;`;
     pool.query(query)
         .then(result => {
+            console.log(result.row);
             res.send(result.rows);
         })
         .catch(error => {

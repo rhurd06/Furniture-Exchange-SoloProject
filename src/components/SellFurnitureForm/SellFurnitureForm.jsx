@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
 //Material UI
-import { TextField } from '@material-ui/core';
+import { MenuItem, TextField } from '@material-ui/core';
 
 const SellFurnitureForm = () => {
     const dispatch = useDispatch();
@@ -15,19 +15,40 @@ const SellFurnitureForm = () => {
     const [description, setDescription] = useState('');
     const [preferredContact , setPreferredContact] = useState('');
     const [username, setUsername] = useState('');
+    const [furnitureType, setFurnitureType] = useState('');
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_FURNITURE_TYPE' })
+    }, []);
+    const furnitureTypeReducer = useSelector(store => store.furnitureTypeReducer);
 
     const submitForm = (event) => {
         event.preventDefault();
         console.log('Clicked submit form');
         dispatch({ type: 'POST_BROWSE_FURNITURE', imageUrl: imageUrl, cost: cost});
         dispatch({ type: 'POST_FURNITURE', imageUrl: imageUrl, cost: cost, 
-                location: location, description: description, 
+                location: location, description: description, furnitureType: furnitureType, 
                 preferredContact: preferredContact, username: username });
         history.push('/browseFurniture');
         // history.push('/itemView');
-    }
+        setImageUrl('');
+        setCost('');
+        setLocation('');
+        setDescription('');
+        setPreferredContact('');
+        setUsername('');
+    };
+
+    const handleChange = (event) => {
+        setFurnitureType(event.target.value);
+    };
 
     return(
+        <>
+        {furnitureTypeReducer == undefined ? (
+            <>
+            </>
+        ) : (
         <form onSubmit={submitForm}>
             <div>
             <TextField id="outlined-basic" label="imageUrl" variant="outlined" >
@@ -78,6 +99,17 @@ const SellFurnitureForm = () => {
             </TextField>
           </div>
           <div>
+                <TextField id="outlined-select" select label="furnitureType"
+                    value={furnitureType} onChange={handleChange} variant="outlined"
+                >
+                    {furnitureTypeReducer.map((option) => (
+                        <MenuItem key={option.id} value={option.id}>
+                            {option.type}
+                        </MenuItem>
+                    ))}       
+                </TextField>
+          </div>
+          <div>
             <TextField id="outlined-basic" label="preferredContact" variant="outlined" >
               Preferred Contact Method:
               <input
@@ -103,6 +135,8 @@ const SellFurnitureForm = () => {
           </div>
           <button type="submit">Add Furniture Item</button>
         </form>
+        )}
+        </>
     );
 };
 

@@ -5,6 +5,7 @@ function* fetchFurnitureType() {
     //get furniture types from Database via the server
     try {
         const response = yield axios.get('/api/furnitureType');
+        console.log(response.data);
         yield put({ type: 'SET_FURNITURE_TYPE', payload: response.data });
     }
     catch(error) {

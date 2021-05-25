@@ -1,4 +1,4 @@
-import { all } from 'redux-saga/effects';
+import { all, takeEvery } from 'redux-saga/effects';
 import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
@@ -13,11 +13,12 @@ import fetchFurniture from './fetchFurniture.saga';
 // the registration triggers a login
 // and login triggers setting the user
 export default function* rootSaga() {
+  yield takeEvery ('FETCH_FURNITURE_TYPE', fetchFurnitureType),
+  yield takeEvery ('FETCH_FURNITURE', fetchFurniture);
+  
   yield all([
     loginSaga(), // login saga is now registered
     registrationSaga(),
     userSaga(),
-    fetchFurniture(),
-    fetchFurnitureType(),
   ]);
 }
