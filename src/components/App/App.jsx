@@ -6,6 +6,9 @@ import {
   Switch,
 } from 'react-router-dom';
 
+import { Typography } from '@material-ui/core';
+
+
 import { useDispatch } from 'react-redux';
 
 import Nav from '../Nav/Nav';
