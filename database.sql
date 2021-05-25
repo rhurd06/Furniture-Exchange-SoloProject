@@ -24,8 +24,13 @@ CREATE TABLE "furniture" (
 	"user_id" int REFERENCES "user",
 	"picture_url" VARCHAR (5000),
 	"description" VARCHAR (5000),
-	"furniture_type" VARCHAR (200),
+	"furniture_type_id" int REFERENCES "furniture_type",
 	"sold" BOOLEAN DEFAULT FALSE
+	);
+
+CREATE TABLE "furniture_type" (
+	"id" SERIAL PRIMARY KEY,
+	"type" VARCHAR (50) NOT NULL
 	);
 	
 CREATE TABLE "favorites" (
@@ -33,4 +38,19 @@ CREATE TABLE "favorites" (
 	"user_id" int REFERENCES "user",
 	"furniture_id" int REFERENCES "furniture"
 	);
+
+INSERT INTO "furniture_type" ("type")
+VALUES
+('Sofa'),
+('Sectional'),
+('Loveseat'),
+('Futon'),
+('Chair'),
+('Bar Stool'),
+('Bedframe'),
+('Dresser'),
+('Desk'),
+('Kitchen Table'),
+('Coffee Table'),
+('End Table');
 	
