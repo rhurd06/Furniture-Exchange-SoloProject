@@ -1,15 +1,31 @@
+// Material UI imports
 import { Typography, AppBar, Card, CardActions, 
     CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container, Button } 
     from '@material-ui/core';
 import WeekendTwoToneIcon from '@material-ui/icons/WeekendTwoTone';
-
 import useStyles from './Styles';
+
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 
 
 function BrowseFurniture() {
-    const classes = useStyles();
-    const cards = [1, 2, 3, 4, 5];
+    //dispatch sends and receives info from sagas
+    const dispatch = useDispatch();
 
+    //history helps us to navigate to another page
+    const history = useHistory();
+
+    //furniture grabs state from furniture reducer
+    const furniture = useSelector(store => store.furnitureReducer);
+
+    const classes = useStyles();
+
+    useEffect(() => {
+        //on page load, get list of furniture from database
+        dispatch({ type: 'FETCH_FURNITURE' });
+    }, [furniture]);
     return(
         <>
             <CssBaseline />
