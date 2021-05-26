@@ -23,6 +23,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import BrowseFurniture from '../BrowseFurniture/BrowseFurniture';
+import SellFurnitureForm from '../SellFurnitureForm/SellFurnitureForm';
 
 import './App.css';
 
@@ -112,6 +113,13 @@ function App() {
             authRedirect="/user"
           >
             <LandingPage />
+          </ProtectedRoute>
+          <ProtectedRoute
+          // // with authRedirect:
+          // // - if logged in, redirects to "/sellFurniture"
+          // // - else shows LandingPage at "/home"
+          >
+            <SellFurnitureForm />
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
