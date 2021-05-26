@@ -40,7 +40,7 @@ const SellFurnitureForm = () => {
         setPreferredContact('');
         setUsername('');
         setFurnitureType('');
-        history.push('/browseFurniture');
+        history.push('/browseFurnitureExpandable');
     };
 
     const handleChange = (event) => {
