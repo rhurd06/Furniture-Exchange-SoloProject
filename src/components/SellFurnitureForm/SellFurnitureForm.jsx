@@ -48,11 +48,7 @@ const SellFurnitureForm = () => {
     };
 
     return(
-        // <>
-        // {furnitureTypeReducer == undefined ? (
-        //     <>
-        //     </>
-        // ) : (
+
         <form onSubmit={submitForm}>
             <div>
             <TextField id="outlined-basic" label="pictureUrl" variant="outlined" 
@@ -125,22 +121,8 @@ const SellFurnitureForm = () => {
               />
             </TextField>
           </div>
-          {/* <div>
-            <TextField id="outlined-basic" label="username" variant="outlined" 
-              onChange={(event) => setUsername(event.target.value)}>
-              Username:
-              <input
-                type="text"
-                name="username"
-                value={user_id}
-                required
-              />
-            </TextField>
-          </div> */}
           <button type="submit">Add Furniture Item</button>
         </form>
-        // )}
-        // </>
     );
 };
 
