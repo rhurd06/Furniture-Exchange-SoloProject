@@ -16,7 +16,7 @@ import addFurnitureItem from './addFurnitureItem.saga';
 export default function* rootSaga() {
   yield takeEvery ('FETCH_FURNITURE_TYPE', fetchFurnitureType),
   yield takeEvery ('FETCH_FURNITURE', fetchFurniture);
-  yield takeEvery ('ADD_FURNITURE_ITEM', addFurnitureItem);
+  yield takeEvery ('POST_FURNITURE', addFurnitureItem);
   
   yield all([
     loginSaga(), // login saga is now registered

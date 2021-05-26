@@ -25,7 +25,7 @@ function BrowseFurniture() {
     useEffect(() => {
         //on page load, get list of furniture from database
         dispatch({ type: 'FETCH_FURNITURE' });
-    }, [furniture]);
+    }, []);
     return(
         <>
             <CssBaseline />

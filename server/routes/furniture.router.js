@@ -18,48 +18,18 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     console.log(req.body);
     // RETURNING "id" will give us back the id of the furniture item added 
-    const query = `INSERT INTO "furniture" (picture_url, 
-                    cost, location, description)
-                    VALUES ($1, $2, $3, $4)
+    const query = `INSERT INTO "furniture" (user_id, picture_url, 
+                    cost, location, description, furniture_type_id)
+                    VALUES ($1, $2, $3, $4, $5, $6)
                     RETURNING "id";`
-    pool.query(query, [req.body.picture_url, req.body.cost, 
-                        req.body.location, req.body.description])
+    pool.query(query, [req.user.id, req.body.picture_url, req.body.cost, 
+                        req.body.location, req.body.description, req.body.furnitureType])
         .then(result => {
             console.log(`New furniture Id:`, result.rows[0].id);
-            const createdFurnitureId= result.rows[0].id;
-
-            //to handle the user id reference
-            const userQuery = `INSERT INTO "furniture"
-                                ("user_id")
-                                VALUES ($1);`;
-            pool.query(userQuery, [createdFurnitureId,
-                        req.body.user_id])
-                .then(result => {
-                    res.sendStatus(201);
-                })
-                .catch(error => {
-                    console.log(error);
-                    res.sendStatus(500);
-                })
-
-            //now to handle the furniture type reference
-            const funritureTypeQuery = ` INSERT INTO "furniture"
-                                        ("furniture_type_id")
-                                        VALUES ($1);`;
-            pool.query(funritureTypeQuery, [createdFurnitureId, 
-                        req.body.furniture_type_id])
-                .then(result => {
-                    res.sendStatus(201);
-                })
-                .catch(error => {
-                    console.log(error);
-                    res.sendStatus(500);
-                })
-
-            //catch for first query
+            res.sendStatus(201);
         })
         .catch(error => {
-            console.log(error);
+            console.log('first query', error);
             res.sendStatus(500);
         })
 })

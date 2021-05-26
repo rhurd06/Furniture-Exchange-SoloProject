@@ -12,13 +12,13 @@ const SellFurnitureForm = () => {
 
     const classes = useStyles();
 
-    const [imageUrl, setImageUrl] = useState('');
-    const [cost, setCost] = useState('');
+    const [picture_url, setPictureUrl] = useState('');
+    const [cost, setCost] = useState(0);
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
     const [preferredContact , setPreferredContact] = useState('');
-    const [username, setUsername] = useState('');
-    const [furnitureType, setFurnitureType] = useState('');
+    const [user_id, setUsername] = useState();
+    const [furnitureType, setFurnitureType] = useState();
 
     useEffect(() => {
         dispatch({ type: 'FETCH_FURNITURE_TYPE' })
@@ -28,14 +28,14 @@ const SellFurnitureForm = () => {
     const submitForm = (event) => {
         event.preventDefault();
         console.log('Clicked submit form');
-        dispatch({ type: 'POST_BROWSE_FURNITURE', imageUrl: imageUrl, cost: cost});
-        dispatch({ type: 'POST_FURNITURE', imageUrl: imageUrl, cost: cost, 
+        dispatch({ type: 'POST_FURNITURE', payload: {picture_url: picture_url, cost: cost, 
                 location: location, description: description, furnitureType: furnitureType, 
-                preferredContact: preferredContact, username: username });
+                preferredContact: preferredContact, user_id: user_id} });
+
         history.push('/browseFurniture');
         // history.push('/itemView');
-        setImageUrl('');
-        setCost('');
+        setPictureUrl('');
+        setCost(0);
         setLocation('');
         setDescription('');
         setPreferredContact('');
@@ -48,57 +48,57 @@ const SellFurnitureForm = () => {
     };
 
     return(
-        <>
-        {furnitureTypeReducer == undefined ? (
-            <>
-            </>
-        ) : (
+        // <>
+        // {furnitureTypeReducer == undefined ? (
+        //     <>
+        //     </>
+        // ) : (
         <form onSubmit={submitForm}>
             <div>
-            <TextField id="outlined-basic" label="imageUrl" variant="outlined" >
+            <TextField id="outlined-basic" label="pictureUrl" variant="outlined" 
+              onChange={(event) => setPictureUrl(event.target.value)}>
                 Image URL:
                     <input
                         type="text"
-                        name="imageUrl"
-                        value={imageUrl}
+                        name="pictureUrl"
+                        value={picture_url}
                         required
-                        onChange={(event) => setImageUrl(event.target.value)}
                     />
             </TextField>
             </div>
             <div>
-            <TextField id="outlined-basic" label="cost" variant="outlined" >
+            <TextField id="outlined-basic" label="cost" variant="outlined" 
+                onChange={(event) => setCost(event.target.value)}>
               Cost:
               <input
                 type="text"
                 name="cost"
                 value={cost}
                 required
-                onChange={(event) => setCost(event.target.value)}
               />
             </TextField>
           </div>
           <div>
-            <TextField id="outlined-basic" label="location" variant="outlined" >
+            <TextField id="outlined-basic" label="location" variant="outlined"
+              onChange={(event) => setLocation(event.target.value)}>
               Location:
               <input
                 type="text"
                 name="location"
                 value={location}
                 required
-                onChange={(event) => setLocation(event.target.value)}
               />
             </TextField>
           </div>
           <div>
-            <TextField id="outlined-basic" label="description" variant="outlined" >
+            <TextField id="outlined-basic" label="description" variant="outlined" 
+              onChange={(event) => setDescription(event.target.value)}>
               Description:
               <input
                 type="text"
                 name="description"
                 value={description}
                 required
-                onChange={(event) => setDescription(event.target.value)}
               />
             </TextField>
           </div>
@@ -114,33 +114,33 @@ const SellFurnitureForm = () => {
                 </TextField>
           </div>
           <div>
-            <TextField id="outlined-basic" label="preferredContact" variant="outlined" >
+            <TextField id="outlined-basic" label="preferredContact" variant="outlined" 
+              onChange={(event) => setPreferredContact(event.target.value)}>
               Preferred Contact Method:
               <input
                 type="text"
                 name="preferredContact"
                 value={preferredContact}
                 required
-                onChange={(event) => setPreferredContact(event.target.value)}
               />
             </TextField>
           </div>
           <div>
-            <TextField id="outlined-basic" label="username" variant="outlined" >
+            <TextField id="outlined-basic" label="username" variant="outlined" 
+              onChange={(event) => setUsername(event.target.value)}>
               Username:
               <input
                 type="text"
                 name="username"
-                value={username}
+                value={user_id}
                 required
-                onChange={(event) => setUsername(event.target.value)}
               />
             </TextField>
           </div>
           <button type="submit">Add Furniture Item</button>
         </form>
-        )}
-        </>
+        // )}
+        // </>
     );
 };
 
