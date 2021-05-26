@@ -45,6 +45,9 @@ function Nav() {
         <Link className="navLink" to="/browseFurnitureExpandable">
           Browse Furniture
         </Link>
+        <Link className="navLink" to="/updateItem">
+          Update Item
+        </Link>
       </div>
     </div>
   );
