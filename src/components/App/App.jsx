@@ -27,6 +27,7 @@ import SellFurnitureForm from '../SellFurnitureForm/SellFurnitureForm';
 
 import './App.css';
 import BrowseFurnitureExpandable from '../BrowseFurniture/BrowseFurnitureExpandable';
+import UpdateItem from '../UpdateItem/UpdateItem';
 
 function App() {
   const dispatch = useDispatch();
@@ -126,6 +127,12 @@ function App() {
           path="/browseFurnitureExpandable"
           >
             <BrowseFurnitureExpandable />
+          </ProtectedRoute>
+          <ProtectedRoute
+          exact
+          path="/updateItem"
+          >
+            <UpdateItem />
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
