@@ -32,7 +32,6 @@ const SellFurnitureForm = () => {
                 location: location, description: description, furnitureType: furnitureType, 
                 preferredContact: preferredContact, user_id: user_id} });
 
-        history.push('/browseFurniture');
         // history.push('/itemView');
         setPictureUrl('');
         setCost(0);
@@ -41,6 +40,7 @@ const SellFurnitureForm = () => {
         setPreferredContact('');
         setUsername('');
         setFurnitureType('');
+        history.push('/browseFurniture');
     };
 
     const handleChange = (event) => {
@@ -125,7 +125,7 @@ const SellFurnitureForm = () => {
               />
             </TextField>
           </div>
-          <div>
+          {/* <div>
             <TextField id="outlined-basic" label="username" variant="outlined" 
               onChange={(event) => setUsername(event.target.value)}>
               Username:
@@ -136,7 +136,7 @@ const SellFurnitureForm = () => {
                 required
               />
             </TextField>
-          </div>
+          </div> */}
           <button type="submit">Add Furniture Item</button>
         </form>
         // )}

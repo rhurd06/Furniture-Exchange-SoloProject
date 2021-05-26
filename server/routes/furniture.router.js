@@ -5,7 +5,8 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 // get all the furniture items from the database
 router.get('/', (req, res) => {
-    pool.query (`SELECT * FROM "furniture";`)
+    const query = `SELECT * FROM "furniture";`;
+    pool.query (query)
         .then((results) => {
             res.send(results.rows);
         })
