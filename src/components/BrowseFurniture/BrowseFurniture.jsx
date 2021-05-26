@@ -25,9 +25,11 @@ function BrowseFurniture() {
     useEffect(() => {
         //on page load, get list of furniture from database
         dispatch({ type: 'FETCH_FURNITURE' });
-    }, []);
+    }, [furniture]);
+
+   
     return(
-        <>
+        <div>
             <CssBaseline />
             <AppBar position="relative" >
                 <Toolbar>
@@ -43,9 +45,6 @@ function BrowseFurniture() {
                         <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
                             Available Furniture
                         </Typography>
-                        <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                            {/* Cards with furniture will go here */}
-                        </Typography>
                         <div className={classes.button}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
@@ -60,13 +59,13 @@ function BrowseFurniture() {
                 <Container className={classes.cardGrid} maxWidth="md" >
                     <Grid container spacing={4}>
                         {furniture.map((furniture) => {
-                        <Grid item key={furniture.id} xs={12} sm={6} md={4} >
+                            return  <Grid item key={furniture.id} xs={12} sm={6} md={4} >
                             <Card className={classes.card}>
-                                <CardMedia 
-                                    className={classes.cardMedia}
-                                    image="https://source.unsplash.com/random"
-                                    title="Image title"
+                                <CardContent>
+                                <img
+                                    image src={furniture.picture_url}
                                 />
+                                </CardContent>
                                 <CardContent className={classes.cardContent}>
                                     <Typography gutterBottom variant="h5">
                                         Heading
@@ -93,7 +92,7 @@ function BrowseFurniture() {
                         Somthing here to give footer a purpose
                 </Typography>
             </footer>
-        </>
+        </div>
     )
 }
 
