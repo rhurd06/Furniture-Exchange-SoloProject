@@ -47,7 +47,16 @@ const UpdateItem = () => {
         setFurnitureType(event.target.value);
     };
 
+    function deleteItem(id) {
+      dispatch({ type: 'DELETE_ITEM', payload: id });
+    };
+
+    const click = ()=> {
+      history.push('/myItems');
+    };
+
     return(
+      <div>
         <form onSubmit={submitForm}>
             <div>
             <TextField id="outlined-basic" label="pictureUrl" variant="outlined" 
@@ -134,6 +143,8 @@ const UpdateItem = () => {
           </div>
           <button type="submit">Add Furniture Item</button>
         </form>
+        <button onClick={click}>Delete Item</button>
+      </div>
     );
 };
 

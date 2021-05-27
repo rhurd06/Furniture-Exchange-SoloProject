@@ -48,6 +48,9 @@ function Nav() {
         <Link className="navLink" to="/updateItem">
           Update Item
         </Link>
+        <Link className="navLink" to="/myItems">
+          View My Items
+        </Link>
       </div>
     </div>
   );
