@@ -20,7 +20,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.post('/register', (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
-  const phone_number = req.body.phone_number
+  const phone_number = req.body.phone_number;
   const password = encryptLib.encryptPassword(req.body.password);
 
   const queryText = `INSERT INTO "user" (username, password, email, phone_number)

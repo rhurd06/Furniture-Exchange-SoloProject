@@ -34,49 +34,49 @@ function RegisterForm() {
         </h3>
       )}
       <div>
-        <TextField id="outlined-basic" label="username" variant="outlined" >
+        <TextField id="outlined-basic" label="username" variant="outlined" 
+          onChange={(event) => setUsername(event.target.value)}>
           Username:
           <input
             type="text"
             name="username"
             value={username}
             required
-            onChange={(event) => setUsername(event.target.value)}
           />
         </TextField>
       </div>
       <div>
-        <TextField id="outlined-basic" label="email" variant="outlined" >
+        <TextField id="outlined-basic" label="email" variant="outlined" 
+          onChange={(event) => setEmail(event.target.value)}>
           Email:
           <input
             type="text"
             name="email"
             value={email}
             required
-            onChange={(event) => setEmail(event.target.value)}
           />
         </TextField>
       </div>
       <div>
-        <TextField id="outlined-basic" label="phoneNumber" variant="outlined">
+        <TextField id="outlined-basic" label="phoneNumber" variant="outlined"
+          onChange={(event) => setPhoneNumber(event.target.value)}>
           Phone Number:
           <input
             type="text"
             name="phoneNumber"
             value={phoneNumber}
-            onChange={(event) => setPhoneNumber(event.target.value)}
           />
         </TextField>
       </div>
       <div>
-        <TextField id="outlined-basic" label="password" variant="outlined">
+        <TextField id="outlined-basic" label="password" variant="outlined"
+          onChange={(event) => setPassword(event.target.value)}>
           Password:
           <input
             type="password"
             name="password"
             value={password}
             required
-            onChange={(event) => setPassword(event.target.value)}
           />
         </TextField>
       </div>
