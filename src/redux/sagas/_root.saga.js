@@ -5,6 +5,8 @@ import userSaga from './user.saga';
 import fetchFurnitureType from './fetchFurnitureType.saga';
 import fetchFurniture from './fetchFurniture.saga';
 import addFurnitureItem from './addFurnitureItem.saga';
+import updateFurnitureItem from './updateFurnitureItem.saga';
+
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -17,6 +19,7 @@ export default function* rootSaga() {
   yield takeEvery ('FETCH_FURNITURE_TYPE', fetchFurnitureType),
   yield takeEvery ('FETCH_FURNITURE', fetchFurniture);
   yield takeEvery ('POST_FURNITURE', addFurnitureItem);
+  yield takeEvery ('SET_UPDATED_FURNITURE', updateFurnitureItem);
   
   yield all([
     loginSaga(), // login saga is now registered
