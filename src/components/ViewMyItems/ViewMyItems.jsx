@@ -27,6 +27,10 @@ function myFurnitureItems() {
         dispatch({ type: 'FETCH_MY_FURNITURE' });
     }, [myFurniture]);
 
+    const handleClick = (event) => {
+        event.preventDefault();
+        history.push('/updateItem');
+    }
     console.log(myFurniture);
    
     return(
@@ -60,14 +64,16 @@ function myFurnitureItems() {
                                 </CardContent>
                                 <CardContent className={classes.cardContent}>
                                     <Typography gutterBottom variant="h5">
-                                        Heading
+                                       {furniture.cost}
                                     </Typography>
                                     <Typography>
-                                        This is a media card. You can use this section to describe the content.
+                                        {furniture.description}
+                                        <br />
+                                        {furniture.location}
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="primary">Edit</Button>
+                                    <Button size="small" color="primary" onClick={handleClick}>Edit</Button>
                                 </CardActions>
                             </Card>
                         </Grid>
