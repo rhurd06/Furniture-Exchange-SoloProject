@@ -45,9 +45,9 @@ function Nav() {
         <Link className="navLink" to="/browseFurnitureExpandable">
           Browse Furniture
         </Link>
-        <Link className="navLink" to="/updateItem">
+        {/* <Link className="navLink" to="/updateItem">
           Update Item
-        </Link>
+        </Link> */}
         <Link className="navLink" to="/myItems">
           View My Items
         </Link>
