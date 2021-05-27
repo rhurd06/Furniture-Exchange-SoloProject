@@ -28,7 +28,7 @@ const UpdateItem = () => {
     const submitForm = (event) => {
         event.preventDefault();
         console.log('Clicked submit form');
-        dispatch({ type: 'POST_FURNITURE', payload: {picture_url: picture_url, cost: cost, 
+        dispatch({ type: 'SET_UPDATED_FURNITURE', payload: {picture_url: picture_url, cost: cost, 
                 location: location, description: description, furnitureType: furnitureType, 
                 preferredContact: preferredContact, sold: sold} });
 
