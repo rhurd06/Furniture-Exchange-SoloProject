@@ -2,6 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+const { response } = require('express');
 
 // get all the furniture items from the database
 router.get('/', (req, res) => {
@@ -33,6 +34,21 @@ router.post('/', (req, res) => {
             console.log('first query', error);
             res.sendStatus(500);
         })
+})
+
+router.put('/:id', (req, res) => {
+    let furnitureId = req.params.id;
+    let query = `UPDATE "furniture" SET "sold" = 'true' WHERE "id"=$1;`;
+
+    pool.query(query, [furnitureId])
+        .then(response => {
+            console.log('Mark sold');
+            res.sendStatus(201);
+        })
+        .catch(error => {
+            console.log(`Error making database query ${query}`, error);
+            res.sendStatus(500);
+        });
 })
 
 module.exports = router;
