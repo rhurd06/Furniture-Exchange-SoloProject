@@ -17,6 +17,7 @@ router.get('/', (req, res) => {
         })
 });
 
+//post (add) new items to the database
 router.post('/', (req, res) => {
     console.log(req.body);
     // RETURNING "id" will give us back the id of the furniture item added 
@@ -34,21 +35,6 @@ router.post('/', (req, res) => {
             console.log('first query', error);
             res.sendStatus(500);
         })
-})
-
-router.put('/:id', rejectUnauthenticated, (req, res) => {
-    let furnitureId = req.params.id;
-    let query = `UPDATE "furniture" SET "sold" = 'true' WHERE "id"=$1;`;
-
-    pool.query(query, [furnitureId])
-        .then(response => {
-            console.log('Mark sold');
-            res.sendStatus(201);
-        })
-        .catch(error => {
-            console.log(`Error making database query ${query}`, error);
-            res.sendStatus(500);
-        });
 })
 
 module.exports = router;
