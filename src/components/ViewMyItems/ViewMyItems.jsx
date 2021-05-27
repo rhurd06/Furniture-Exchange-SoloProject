@@ -27,6 +27,7 @@ function myFurnitureItems() {
         dispatch({ type: 'FETCH_MY_FURNITURE' });
     }, [myFurniture]);
 
+    console.log(myFurniture);
    
     return(
         <div>
@@ -66,7 +67,6 @@ function myFurnitureItems() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="primary">View</Button>
                                     <Button size="small" color="primary">Edit</Button>
                                 </CardActions>
                             </Card>
@@ -75,14 +75,6 @@ function myFurnitureItems() {
                     </Grid>
                 </Container>
             </main>
-            {/* <footer className={classes.footer}>
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                </Typography>
-                <Typography variant="subtitle1" align="center" color="textSecondary">
-                        Somthing here to give footer a purpose
-                </Typography>
-            </footer> */}
         </div>
     )
 }

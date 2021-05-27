@@ -41,6 +41,7 @@ function BrowseFurnitureExpandable() {
     //dispatch sends and receives info from sagas
     const dispatch = useDispatch();
     const furniture = useSelector(store => store.furnitureReducer);
+    const user = useSelector(store => store.user);
     let id = useParams();
 
     useEffect(() => {
@@ -78,8 +79,15 @@ function BrowseFurnitureExpandable() {
                             </CardActions>
                             <Collapse in={expandedId === i} timeout="auto" unmountOnExit>
                                 <CardContent>
-                                    <Typography> Cost: $</Typography>
-                                    <Typography paragraph></Typography>
+                                    <Typography> Cost: {furniture.cost} $</Typography>
+                                    <Typography paragraph>{furniture.description}
+                                        <br />
+                                        {furniture.location}
+                                        <br />
+                                        {user.username}
+                                        <br />
+                                        {user.email}
+                                    </Typography>
                                 </CardContent>
                             </Collapse>
                         </Card>
