@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
         })
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:id', rejectUnauthenticated, (req, res) => {
     let furnitureId = req.params.id;
     let query = `UPDATE "furniture" SET "sold" = 'true' WHERE "id"=$1;`;
 
