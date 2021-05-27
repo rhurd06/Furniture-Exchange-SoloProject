@@ -64,6 +64,7 @@ function BrowseFurnitureExpandable() {
                                 <img
                                     image src={furniture.picture_url}
                                 />
+                            <Typography> Cost: ${furniture.cost} </Typography>
                             </CardContent>
                             <CardActions disableSpacing>
                                 {/* <IconButton aria-label="add to favorites">
@@ -79,7 +80,6 @@ function BrowseFurnitureExpandable() {
                             </CardActions>
                             <Collapse in={expandedId === i} timeout="auto" unmountOnExit>
                                 <CardContent>
-                                    <Typography> Cost: {furniture.cost} $</Typography>
                                     <Typography paragraph>{furniture.description}
                                         <br />
                                         {furniture.location}
