@@ -24,9 +24,11 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import BrowseFurniture from '../BrowseFurniture/BrowseFurniture';
 import SellFurnitureForm from '../SellFurnitureForm/SellFurnitureForm';
+import ViewMyItems from '../ViewMyItems/ViewMyItems';
 
 import './App.css';
 import BrowseFurnitureExpandable from '../BrowseFurniture/BrowseFurnitureExpandable';
+import UpdateItem from '../UpdateItem/UpdateItem';
 
 function App() {
   const dispatch = useDispatch();
@@ -127,7 +129,18 @@ function App() {
           >
             <BrowseFurnitureExpandable />
           </ProtectedRoute>
-
+          <ProtectedRoute
+          exact
+          path="/updateItem"
+          >
+            <UpdateItem />
+          </ProtectedRoute>
+          <ProtectedRoute
+          exact
+          path="/myItems"
+          >
+            <ViewMyItems />
+          </ProtectedRoute>
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>

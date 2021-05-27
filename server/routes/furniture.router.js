@@ -2,6 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+const { response } = require('express');
 
 // get all the furniture items from the database
 router.get('/', (req, res) => {
@@ -16,6 +17,7 @@ router.get('/', (req, res) => {
         })
 });
 
+//post (add) new items to the database
 router.post('/', (req, res) => {
     console.log(req.body);
     // RETURNING "id" will give us back the id of the furniture item added 
