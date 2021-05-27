@@ -16,7 +16,7 @@ const UpdateItem = () => {
     const [cost, setCost] = useState(0);
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
-    const [preferredContact , setPreferredContact] = useState('');
+    const [email , setEmail] = useState('');
     const [furnitureType, setFurnitureType] = useState();
     const [sold, setSold] = useState(false);
 
@@ -30,17 +30,18 @@ const UpdateItem = () => {
         console.log('Clicked submit form');
         dispatch({ type: 'SET_UPDATED_FURNITURE', payload: {picture_url: picture_url, cost: cost, 
                 location: location, description: description, furnitureType: furnitureType, 
-                preferredContact: preferredContact, sold: sold} });
+                email: email, sold: sold} });
+
 
         // history.push('/itemView');
-        setPictureUrl('');
-        setCost(0);
-        setLocation('');
-        setDescription('');
-        setPreferredContact('');
-        setFurnitureType('');
-        setSold(false);
-        history.push('/browseFurnitureExpandable');
+        // setPictureUrl('');
+        // setCost(0);
+        // setLocation('');
+        // setDescription('');
+        // setEmail('');
+        // setFurnitureType('');
+        // setSold(false);
+        // history.push('/browseFurnitureExpandable');
     };
 
     const handleChange = (event) => {
@@ -57,7 +58,7 @@ const UpdateItem = () => {
 
     return(
       <div>
-        <form onSubmit={submitForm}>
+        <form onSubmit={(event) => submitForm(event)}>
             <div>
             <TextField id="outlined-basic" label="pictureUrl" variant="outlined" 
               onChange={(event) => setPictureUrl(event.target.value)}>
@@ -118,13 +119,13 @@ const UpdateItem = () => {
                 </TextField>
           </div>
           <div>
-            <TextField id="outlined-basic" label="preferredContact" variant="outlined" 
-              onChange={(event) => setPreferredContact(event.target.value)}>
-              Preferred Contact Method:
+            <TextField id="outlined-basic" label="email" variant="outlined" 
+              onChange={(event) => setEmail(event.target.value)}>
+               Email:
               <input
                 type="text"
-                name="preferredContact"
-                value={preferredContact}
+                name="email"
+                value={email}
                 required
               />
             </TextField>
@@ -141,7 +142,7 @@ const UpdateItem = () => {
               />
             </TextField>
           </div>
-          <button type="submit">Add Furniture Item</button>
+          <button type="submit">Update Furniture Item</button>
         </form>
         <button onClick={click}>Delete Item</button>
       </div>
