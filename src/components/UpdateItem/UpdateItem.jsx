@@ -29,7 +29,7 @@ const UpdateItem = () => {
         event.preventDefault();
         console.log('Clicked submit form');
         dispatch({ type: 'SET_UPDATED_FURNITURE', payload: {picture_url: picture_url, cost: cost, 
-                location: location, description: description, furnitureType: furnitureType, 
+                location: location, description: description, 
                 email: email, sold: sold} });
 
 
@@ -107,7 +107,7 @@ const UpdateItem = () => {
               />
             </TextField>
           </div>
-          <div className={classes.root}>
+          {/* <div className={classes.root}>
                 <TextField id="outlined-select" select label="furnitureType"
                     value={furnitureType} onChange={handleChange} variant="outlined"
                 >
@@ -117,7 +117,7 @@ const UpdateItem = () => {
                         </MenuItem>
                     ))}       
                 </TextField>
-          </div>
+          </div> */}
           <div>
             <TextField id="outlined-basic" label="email" variant="outlined" 
               onChange={(event) => setEmail(event.target.value)}>
