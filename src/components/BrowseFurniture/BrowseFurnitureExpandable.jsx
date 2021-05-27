@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
+//Material UI imports
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
@@ -39,10 +41,13 @@ function BrowseFurnitureExpandable() {
     //dispatch sends and receives info from sagas
     const dispatch = useDispatch();
     const furniture = useSelector(store => store.furnitureReducer);
+    const user = useSelector(store => store.user);
+    let id = useParams();
 
     useEffect(() => {
         //on page load, get list of furniture from database
         dispatch({ type: 'FETCH_FURNITURE' });
+        // dispatch({ type: 'SET_FURNITURE', payload: id})
         }, [furniture]);
 
     const handleExpandClick = (i) => {
@@ -61,9 +66,9 @@ function BrowseFurnitureExpandable() {
                                 />
                             </CardContent>
                             <CardActions disableSpacing>
-                                <IconButton aria-label="add to favorites">
+                                {/* <IconButton aria-label="add to favorites">
                                     <FavoriteIcon />
-                                </IconButton>
+                                </IconButton> */}
                                 <IconButton
                                 onClick={() => handleExpandClick(i)}
                                 aria-expanded={expandedId === i}
@@ -74,8 +79,15 @@ function BrowseFurnitureExpandable() {
                             </CardActions>
                             <Collapse in={expandedId === i} timeout="auto" unmountOnExit>
                                 <CardContent>
-                                    <Typography> Cost: $</Typography>
-                                    <Typography paragraph></Typography>
+                                    <Typography> Cost: {furniture.cost} $</Typography>
+                                    <Typography paragraph>{furniture.description}
+                                        <br />
+                                        {furniture.location}
+                                        <br />
+                                        {user.username}
+                                        <br />
+                                        {user.email}
+                                    </Typography>
                                 </CardContent>
                             </Collapse>
                         </Card>

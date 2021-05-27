@@ -4,7 +4,7 @@ import axios from 'axios';
 function* updateFurnitureItem(action) {
     //update item in the DB
     try {
-        yield axios.put('/api/furniture', action.payload);
+        yield axios.put(`/api/myItems`, action.payload);
         yield put({ type: 'UPDATE_FURNITURE'})
         console.log('updateFurnitureItem', action.payload);
     }
