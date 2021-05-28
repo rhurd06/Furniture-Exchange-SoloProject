@@ -7,14 +7,6 @@ function LoginPage() {
 
   return (
     <div>
-      <button 
-        type="button" 
-        onClick={() => {
-          history.push('/browseFurniture');
-        }}
-      >
-        Browse Furniture
-      </button>
       <LoginForm />
       
       <center>
