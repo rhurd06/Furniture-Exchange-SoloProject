@@ -1,11 +1,11 @@
 // Material UI imports
 import { Typography, AppBar, Card, CardActions, 
-    CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container, Button } 
+    CardContent, CssBaseline, Grid, Toolbar, Container, Button } 
     from '@material-ui/core';
 import WeekendTwoToneIcon from '@material-ui/icons/WeekendTwoTone';
 import useStyles from './Styles';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
