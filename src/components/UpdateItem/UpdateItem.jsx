@@ -29,7 +29,10 @@ const UpdateItem = () => {
         event.preventDefault();
         console.log('Clicked submit form');
         dispatch({ type: 'SET_UPDATED_FURNITURE', payload: {picture_url: picture_url, cost: cost, 
+
                 location: location, description: description, email: email, sold: sold} });
+
+
 
 
         // history.push('/itemView');
