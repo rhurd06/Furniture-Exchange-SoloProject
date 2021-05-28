@@ -80,13 +80,14 @@ function BrowseFurnitureExpandable() {
                             </CardActions>
                             <Collapse in={expandedId === i} timeout="auto" unmountOnExit>
                                 <CardContent>
-                                    <Typography paragraph>{furniture.description}
+                                    <Typography paragraph>
+                                        {furniture.description}
                                         <br />
                                         {furniture.location}
                                         <br />
-                                        {user.username}
+                                        {furniture.username}
                                         <br />
-                                        {user.email}
+                                        {furniture.email}
                                     </Typography>
                                 </CardContent>
                             </Collapse>

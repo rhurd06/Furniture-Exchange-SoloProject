@@ -17,20 +17,19 @@ const UpdateItem = () => {
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
     const [email , setEmail] = useState('');
-    const [furnitureType, setFurnitureType] = useState();
+    // const [furnitureType, setFurnitureType] = useState();
     const [sold, setSold] = useState(false);
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_FURNITURE_TYPE' })
+        // dispatch({ type: 'FETCH_FURNITURE_TYPE' })
     }, []);
-    const furnitureTypeReducer = useSelector(store => store.furnitureTypeReducer);
+    // const furnitureTypeReducer = useSelector(store => store.furnitureTypeReducer);
 
     const submitForm = (event) => {
         event.preventDefault();
         console.log('Clicked submit form');
         dispatch({ type: 'SET_UPDATED_FURNITURE', payload: {picture_url: picture_url, cost: cost, 
-                location: location, description: description, furnitureType: furnitureType, 
-                email: email, sold: sold} });
+                location: location, description: description, email: email, sold: sold} });
 
 
         // history.push('/itemView');
@@ -107,7 +106,7 @@ const UpdateItem = () => {
               />
             </TextField>
           </div>
-          <div className={classes.root}>
+          {/* <div className={classes.root}>
                 <TextField id="outlined-select" select label="furnitureType"
                     value={furnitureType} onChange={handleChange} variant="outlined"
                 >
@@ -117,7 +116,7 @@ const UpdateItem = () => {
                         </MenuItem>
                     ))}       
                 </TextField>
-          </div>
+          </div> */}
           <div>
             <TextField id="outlined-basic" label="email" variant="outlined" 
               onChange={(event) => setEmail(event.target.value)}>
