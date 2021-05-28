@@ -6,7 +6,7 @@ const { response } = require('express');
 
 // get all the furniture items from the database
 router.get('/', rejectUnauthenticated, (req, res) => {
-    const query = `SELECT picture_url, cost, location, description, "user".username, "user".email FROM "furniture"
+    const query = `SELECT id, picture_url, cost, location, description, "user".username, "user".email FROM "furniture"
                     JOIN "user" on "user".id = furniture.user_id`;
     pool.query (query)
         .then((results) => {

@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
 //Material UI
-import { MenuItem, TextField } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import useStyles from './styles';
 
 const UpdateItem = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const furniture = useSelector(store => store.furniture);
 
     const classes = useStyles();
 
@@ -17,20 +19,20 @@ const UpdateItem = () => {
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
     const [email , setEmail] = useState('');
-    // const [furnitureType, setFurnitureType] = useState();
     const [sold, setSold] = useState(false);
 
-    useEffect(() => {
-        // dispatch({ type: 'FETCH_FURNITURE_TYPE' })
-    }, []);
-    // const furnitureTypeReducer = useSelector(store => store.furnitureTypeReducer);
 
     const submitForm = (event) => {
         event.preventDefault();
         console.log('Clicked submit form');
-        dispatch({ type: 'SET_UPDATED_FURNITURE', payload: {picture_url: picture_url, cost: cost, 
-
-                location: location, description: description, email: email, sold: sold} });
+        dispatch({ type: 'UPDATE_FURNITURE', payload: {
+          furniture: furniture.id, 
+          picture_url: picture_url, 
+          cost: cost, 
+          location: location, 
+          description: description, 
+          email: email, 
+          sold: sold} });
 
 
 

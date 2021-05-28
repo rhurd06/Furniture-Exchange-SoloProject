@@ -18,8 +18,8 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 
 //update one of my items
 router.put('/:id', rejectUnauthenticated, (req, res) => {
-    let furnitureId = req.params.id;
-    console.log(req.furniture.id);
+    let furniture = req.params.id;
+    console.log(req.furniture);
     let query = `UPDATE "furniture" SET picture_url=$2, cost=$3, location=$4, 
                     description=$5, sold=$6 WHERE "furniture".id=$1;`;
 console.log(req.body);
@@ -45,16 +45,16 @@ console.log(req.body);
         });
 });
 
-//delete one of my items
-router.delete('/:id', rejectUnauthenticated, (req, res) => {
-    const query = `DELETE FROM "furniture" WHERE id=$1 AND user_id=$2;`;
-    pool.query(query, [req.params.id, req.user.id])
-        .then(() => { res.sendStatus(201) 
-        })
-        .catch(error => {
-            console.log('Error deleting item', error);
-            res.sendStatus(500);
-        });
-});
+// //delete one of my items
+// router.delete('/:id', rejectUnauthenticated, (req, res) => {
+//     const query = `DELETE FROM "furniture" WHERE id=$1 AND user_id=$2;`;
+//     pool.query(query, [req.params.id, req.user.id])
+//         .then(() => { res.sendStatus(201) 
+//         })
+//         .catch(error => {
+//             console.log('Error deleting item', error);
+//             res.sendStatus(500);
+//         });
+// });
 
 module.exports = router;
