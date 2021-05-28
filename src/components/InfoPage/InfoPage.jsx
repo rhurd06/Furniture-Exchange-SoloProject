@@ -20,6 +20,7 @@ function InfoPage() {
         <li>Postico</li>
         <li>PostgreSQL</li>
         <li>SQL</li>
+        <li>JSON</li>
       </ul>
     </div>
   );

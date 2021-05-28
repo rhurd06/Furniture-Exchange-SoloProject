@@ -25,6 +25,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import BrowseFurniture from '../BrowseFurniture/BrowseFurniture';
 import SellFurnitureForm from '../SellFurnitureForm/SellFurnitureForm';
 import ViewMyItems from '../ViewMyItems/ViewMyItems';
+import FavoritesView from '../FavoritesView/FavoritesView';
 
 import './App.css';
 import BrowseFurnitureExpandable from '../BrowseFurniture/BrowseFurnitureExpandable';
@@ -140,6 +141,12 @@ function App() {
           path="/myItems"
           >
             <ViewMyItems />
+          </ProtectedRoute>
+          <ProtectedRoute
+          exact
+          path="/myFavorites"
+          >
+            <FavoritesView />
           </ProtectedRoute>
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
