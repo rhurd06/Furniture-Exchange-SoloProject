@@ -25,7 +25,7 @@ function myFurnitureItems() {
     useEffect(() => {
         //on page load, get list of furniture from database
         dispatch({ type: 'FETCH_MY_FURNITURE' });
-    }, [myFurniture]);
+    }, []);
 
     const handleClick = (event) => {
         event.preventDefault();
