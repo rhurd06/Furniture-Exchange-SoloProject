@@ -17,20 +17,22 @@ const UpdateItem = () => {
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
     const [email , setEmail] = useState('');
-    const [furnitureType, setFurnitureType] = useState();
+    // const [furnitureType, setFurnitureType] = useState();
     const [sold, setSold] = useState(false);
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_FURNITURE_TYPE' })
+        // dispatch({ type: 'FETCH_FURNITURE_TYPE' })
     }, []);
-    const furnitureTypeReducer = useSelector(store => store.furnitureTypeReducer);
+    // const furnitureTypeReducer = useSelector(store => store.furnitureTypeReducer);
 
     const submitForm = (event) => {
         event.preventDefault();
         console.log('Clicked submit form');
         dispatch({ type: 'SET_UPDATED_FURNITURE', payload: {picture_url: picture_url, cost: cost, 
-                location: location, description: description, 
-                email: email, sold: sold} });
+
+                location: location, description: description, email: email, sold: sold} });
+
+
 
 
         // history.push('/itemView');
