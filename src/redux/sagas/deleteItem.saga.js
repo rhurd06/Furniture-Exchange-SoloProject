@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function* deleteItem(action) {
     try {
-        yield axios.delete(`/api/furniture/${action.payload}`);
+        yield axios.delete(`/api/myItems/${action.payload}`);
         yield put({ type: 'FETCH_MY_FURNITURE' });
     }
     catch(error) {

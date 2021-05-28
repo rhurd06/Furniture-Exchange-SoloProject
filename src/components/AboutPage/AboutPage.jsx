@@ -9,7 +9,7 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p> Are you downsizing? Redecorating? Just moved and are in need of 
+      <p> Are you downsizing? Redecorating? Just moved and are in need of 
           furniture? Sound familiar, check out my app. Just follow the  
           'Register Here' link to create an account. It will automatically 
           log you in and then you'll be free to browse available items,add 

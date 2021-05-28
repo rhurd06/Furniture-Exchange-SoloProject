@@ -8,6 +8,7 @@ import useStyles from './Styles';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import UpdateItem from '../UpdateItem/UpdateItem';
 
 
 function myFurnitureItems() {
@@ -28,10 +29,18 @@ function myFurnitureItems() {
         dispatch({ type: 'FETCH_MY_FURNITURE' });
     }, []);
 
-    const handleClick = (event) => {
-        event.preventDefault();
+    const updateItem = (event, furniture) => {
+        console.log('clicked on item', furniture);
+        //Send info on that furniture item to reducer
+        dispatch({ type: 'SET_UPDATED_FURNITURE', payload: furniture})
         history.push('/updateItem');
     }
+
+    // function handleDelete(id) {
+    //     alert('ARE YOU SURE YOU WANT TO DELETE THIS ITEM?');
+    //     dispatch({ type: 'DELETE_ITEM', payload: id})
+    //     history.push('/myItems');
+    // }
     console.log(myFurniture);
    
     return(
@@ -58,8 +67,8 @@ function myFurnitureItems() {
                 {/* the next portion has MUI styling to create cards for each item */}
                 <Container className={classes.cardGrid} maxWidth="md" >
                     <Grid container spacing={4}>
-                        {myFurniture.map((furniture) => {
-                            return  <Grid item key={furniture.id} xs={12} sm={6} md={4} >
+                        {myFurniture.map((furniture, index) => {
+                            return  <Grid item key={index} xs={12} sm={6} md={4} >
                             <Card className={classes.card}>
                                 <CardContent>
                                 <img
@@ -77,7 +86,8 @@ function myFurnitureItems() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="primary" onClick={handleClick}>Edit</Button>
+                                    <Button size="small" color="primary" onClick={(event) => UpdateItem(event, furniture)}>Edit</Button>
+                                    {/* <Button size="small" color="secondary" onClick={() => handleDelete(myFurniture.id)}>Delete</Button> */}
                                 </CardActions>
                             </Card>
                         </Grid>
