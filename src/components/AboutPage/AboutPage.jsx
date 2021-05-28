@@ -16,11 +16,11 @@ function AboutPage() {
           items of own to sell, and view your items. Logged in users can 
           edit or delete the items they have uploaded to the app.
         </p>
-        <p>
+        {/* <p>
           To learn how I created this app check out my github at: 
           <br />
-          https://github.com/rhurd06/Furniture-Exchange-SoloProject
-        </p>
+          ![github](https://github.com/rhurd06/Furniture-Exchange-SoloProject)
+        </p> */}
       </div>
     </div>
   );
