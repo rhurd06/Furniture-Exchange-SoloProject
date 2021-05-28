@@ -20,6 +20,7 @@ function myFurnitureItems() {
     //furniture grabs state from furniture reducer
     const myFurniture = useSelector(store => store.myFurniture);
 
+    //classes adds a variable name to call with styling choices from MUI
     const classes = useStyles();
 
     useEffect(() => {
@@ -37,6 +38,7 @@ function myFurnitureItems() {
         <div>
             <CssBaseline />
             <AppBar position="relative" >
+                {/* Banner across the top with sofa icon */}
                 <Toolbar>
                     <WeekendTwoToneIcon className={classes.icon} />
                     <Typography variant="h6">
@@ -45,6 +47,7 @@ function myFurnitureItems() {
                 </Toolbar>
             </AppBar>
             <main>
+                {/* Header */}
                 <div className={classes.container}>
                     <Container maxWidth="sm" >
                         <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
@@ -52,6 +55,7 @@ function myFurnitureItems() {
                         </Typography>
                     </Container>
                 </div>
+                {/* the next portion has MUI styling to create cards for each item */}
                 <Container className={classes.cardGrid} maxWidth="md" >
                     <Grid container spacing={4}>
                         {myFurniture.map((furniture) => {

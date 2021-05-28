@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
 
 //Material UI imports
 import { makeStyles } from '@material-ui/core/styles';
@@ -35,19 +34,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function BrowseFurnitureExpandable() {
+
+    //classes adds a variable name to call with styling choices from MUI
     const classes = useStyles();
+    //these states handle the card state; whether it's been expanded or not
     const [expandedId, setExpandedId] = useState(false);
 
     //dispatch sends and receives info from sagas
     const dispatch = useDispatch();
     const furniture = useSelector(store => store.furnitureReducer);
-    const user = useSelector(store => store.user);
-    let id = useParams();
+
 
     useEffect(() => {
         //on page load, get list of furniture from database
         dispatch({ type: 'FETCH_FURNITURE' });
-        // dispatch({ type: 'SET_FURNITURE', payload: id})
         }, [furniture]);
 
     const handleExpandClick = (i) => {
