@@ -20,20 +20,21 @@ function myFurnitureItems() {
 
     //furniture grabs state from furniture reducer
     const myFurniture = useSelector(store => store.myFurniture);
+    const user = useSelector(store => store.user);
 
     //classes adds a variable name to call with styling choices from MUI
     const classes = useStyles();
 
     useEffect(() => {
         //on page load, get list of furniture from database
-        dispatch({ type: 'FETCH_MY_FURNITURE' });
+        dispatch({ type: 'FETCH_MY_FURNITURE', payload: user.id });
     }, []);
 
     const updateItem = (event, furniture) => {
         console.log('clicked on item', furniture);
         //Send info on that furniture item to reducer
-        dispatch({ type: 'SET_UPDATED_FURNITURE', payload: furniture})
-        history.push('/updateItem');
+        dispatch({ type: 'SET_UPDATED_ITEM', payload: furniture})
+        history.push(`/updateItem/${furniture.id}`);
     }
 
     // function handleDelete(id) {
@@ -86,7 +87,7 @@ function myFurnitureItems() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="primary" onClick={(event) => UpdateItem(event, furniture)}>Edit</Button>
+                                    <Button size="small" color="primary" onClick={(event) => updateItem(event, furniture)}>Edit</Button>
                                     {/* <Button size="small" color="secondary" onClick={() => handleDelete(myFurniture.id)}>Delete</Button> */}
                                 </CardActions>
                             </Card>

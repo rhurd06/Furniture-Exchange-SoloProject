@@ -21,7 +21,7 @@ export default function* rootSaga() {
   yield takeEvery ('FETCH_FURNITURE_TYPE', fetchFurnitureType),
   yield takeEvery ('FETCH_FURNITURE', fetchFurniture);
   yield takeEvery ('POST_FURNITURE', addFurnitureItem);
-  yield takeEvery ('SET_UPDATED_FURNITURE', updateFurnitureItem);
+  yield takeEvery ('UPDATE_FURNITURE', updateFurnitureItem);
   yield takeEvery ('DELETE_ITEM', deleteItem);
   yield takeEvery ('FETCH_MY_FURNITURE', fetchMyFurniture);
   
