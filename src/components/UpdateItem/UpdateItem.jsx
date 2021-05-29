@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 
 //Material UI
-import { TextField } from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 import useStyles from './styles';
 
 const UpdateItem = () => {
@@ -45,10 +45,6 @@ const UpdateItem = () => {
           data: newUpdates} 
         });
 
-
-
-
-        // history.push('/itemView');
         // setPictureUrl('');
         // setCost(0);
         // setLocation('');
@@ -57,18 +53,6 @@ const UpdateItem = () => {
         // setFurnitureType('');
         // setSold(false);
         // history.push('/browseFurnitureExpandable');
-    };
-
-    const handleChange = (event) => {
-        setFurnitureType(event.target.value);
-    };
-
-    // function deleteItem(id) {
-    //   dispatch({ type: 'DELETE_ITEM', payload: id });
-    // };
-
-    const click = ()=> {
-      history.push('/myItems');
     };
 
     return(
@@ -135,9 +119,8 @@ const UpdateItem = () => {
                 required
             />
           </div>
-          <button type="submit">Update Furniture Item</button>
+          <Button size="small" color="primary" type="submit">Update Furniture Item</Button>
         </form>
-        <button onClick={click}>Delete Item</button>
       </div>
     );
 };
