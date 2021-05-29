@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 
 //Material UI
 import { TextField } from '@material-ui/core';
@@ -9,30 +9,41 @@ import useStyles from './styles';
 const UpdateItem = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    let {id} = useParams();
 
-    const furniture = useSelector(store => store.furniture);
+    useEffect(() => {
+      dispatch({type: 'FETCH_MY_FURNITURE'})
+    }, []);
+
+    const furniture = useSelector(store => store.editItem);
+
+    console.log(furniture);
 
     const classes = useStyles();
 
-    const [picture_url, setPictureUrl] = useState('');
-    const [cost, setCost] = useState(0);
-    const [location, setLocation] = useState('');
-    const [description, setDescription] = useState('');
-    const [email , setEmail] = useState('');
+    const [picture_url, setPictureUrl] = useState(furniture.picture_url);
+    const [cost, setCost] = useState(furniture.cost);
+    const [location, setLocation] = useState(furniture.location);
+    const [description, setDescription] = useState(furniture.description);
+    const [email , setEmail] = useState(furniture.email);
     const [sold, setSold] = useState(false);
 
+    const newUpdates = {
+      picture_url: picture_url, 
+          cost: cost, 
+          location: location, 
+          description: description, 
+          email: email, 
+          sold: sold
+    }
 
     const submitForm = (event) => {
         event.preventDefault();
         console.log('Clicked submit form');
         dispatch({ type: 'UPDATE_FURNITURE', payload: {
-          furniture: furniture.id, 
-          picture_url: picture_url, 
-          cost: cost, 
-          location: location, 
-          description: description, 
-          email: email, 
-          sold: sold} });
+          id: id,
+          data: newUpdates} 
+        });
 
 
 
@@ -52,9 +63,9 @@ const UpdateItem = () => {
         setFurnitureType(event.target.value);
     };
 
-    function deleteItem(id) {
-      dispatch({ type: 'DELETE_ITEM', payload: id });
-    };
+    // function deleteItem(id) {
+    //   dispatch({ type: 'DELETE_ITEM', payload: id });
+    // };
 
     const click = ()=> {
       history.push('/myItems');
@@ -65,86 +76,64 @@ const UpdateItem = () => {
         <form onSubmit={(event) => submitForm(event)}>
             <div>
             <TextField id="outlined-basic" label="pictureUrl" variant="outlined" 
-              onChange={(event) => setPictureUrl(event.target.value)}>
-                Image URL:
-                    <input
+              onChange={(event) => setPictureUrl(event.target.value)}
                         type="text"
                         name="pictureUrl"
                         value={picture_url}
+                        placeholder={furniture.picture_url}
                         required
-                    />
-            </TextField>
+            />
             </div>
             <div>
             <TextField id="outlined-basic" label="cost" variant="outlined" 
-                onChange={(event) => setCost(event.target.value)}>
-              Cost:
-              <input
+                onChange={(event) => setCost(event.target.value)}
                 type="text"
                 name="cost"
                 value={cost}
+                placeholder={furniture.cost}
                 required
-              />
-            </TextField>
+            />
           </div>
           <div>
             <TextField id="outlined-basic" label="location" variant="outlined"
-              onChange={(event) => setLocation(event.target.value)}>
-              Location:
-              <input
+              onChange={(event) => setLocation(event.target.value)}
                 type="text"
                 name="location"
                 value={location}
+                placeholder={furniture.location}
                 required
-              />
-            </TextField>
+            />
           </div>
           <div>
             <TextField id="outlined-basic" label="description" variant="outlined" 
-              onChange={(event) => setDescription(event.target.value)}>
-              Description:
-              <input
+              onChange={(event) => setDescription(event.target.value)}
                 type="text"
                 name="description"
                 value={description}
+                placeholder={furniture.description}
                 required
-              />
-            </TextField>
+            />
           </div>
-          {/* <div className={classes.root}>
-                <TextField id="outlined-select" select label="furnitureType"
-                    value={furnitureType} onChange={handleChange} variant="outlined"
-                >
-                    {furnitureTypeReducer.map((option) => (
-                        <MenuItem key={option.id} value={option.id}>
-                            {option.type}
-                        </MenuItem>
-                    ))}       
-                </TextField>
-          </div> */}
+         
           <div>
             <TextField id="outlined-basic" label="email" variant="outlined" 
-              onChange={(event) => setEmail(event.target.value)}>
-               Email:
-              <input
+              onChange={(event) => setEmail(event.target.value)}
                 type="text"
                 name="email"
                 value={email}
+                placeholder={furniture.email}
                 required
-              />
-            </TextField>
+            />
           </div>
           <div>
             <TextField id="outlined-basic" label="sold" variant="outlined" 
-              onChange={(event) => setSold(event.target.value)}>
-              Item Sold:
-              <input
+              onChange={(event) => setSold(event.target.value)}
                 type="text"
                 name="sold"
                 value={sold}
+                placeholder={'false'}
                 required
-              />
-            </TextField>
+            />
           </div>
           <button type="submit">Update Furniture Item</button>
         </form>

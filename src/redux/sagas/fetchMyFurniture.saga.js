@@ -1,8 +1,6 @@
 import { put } from '@redux-saga/core/effects';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
 
-// const user = useSelector(store => store.user);
 
 function* fetchMyFurniture(action) {
     try {
