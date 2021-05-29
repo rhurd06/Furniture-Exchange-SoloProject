@@ -8,7 +8,6 @@ import useStyles from './Styles';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-import UpdateItem from '../UpdateItem/UpdateItem';
 
 
 function myFurnitureItems() {
@@ -30,18 +29,18 @@ function myFurnitureItems() {
         dispatch({ type: 'FETCH_MY_FURNITURE', payload: user.id });
     }, []);
 
-    const updateItem = (event, furniture) => {
+    const goToUpdateItem = (event, furniture) => {
         console.log('clicked on item', furniture);
         //Send info on that furniture item to reducer
         dispatch({ type: 'SET_UPDATED_ITEM', payload: furniture})
         history.push(`/updateItem/${furniture.id}`);
     }
 
-    // function handleDelete(id) {
-    //     alert('ARE YOU SURE YOU WANT TO DELETE THIS ITEM?');
-    //     dispatch({ type: 'DELETE_ITEM', payload: id})
-    //     history.push('/myItems');
-    // }
+    function handleDelete(id) {
+        alert('ARE YOU SURE YOU WANT TO DELETE THIS ITEM?');
+        dispatch({ type: 'DELETE_ITEM', payload: id})
+        history.push('/myItems');
+    }
     console.log(myFurniture);
    
     return(
@@ -87,8 +86,8 @@ function myFurnitureItems() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="primary" onClick={(event) => updateItem(event, furniture)}>Edit</Button>
-                                    {/* <Button size="small" color="secondary" onClick={() => handleDelete(myFurniture.id)}>Delete</Button> */}
+                                    <Button size="small" color="primary" onClick={(event) => goToUpdateItem(event, furniture)}>Edit</Button>
+                                    <Button size="small" color="secondary" onClick={() => handleDelete(myFurniture.id)}>Delete</Button>
                                 </CardActions>
                             </Card>
                         </Grid>
