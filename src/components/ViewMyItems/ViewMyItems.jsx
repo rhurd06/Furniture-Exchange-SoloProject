@@ -1,11 +1,11 @@
 // Material UI imports
 import { Typography, AppBar, Card, CardActions, 
-    CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container, Button } 
+    CardContent, CssBaseline, Grid, Toolbar, Container, Button } 
     from '@material-ui/core';
 import WeekendTwoToneIcon from '@material-ui/icons/WeekendTwoTone';
 import useStyles from './Styles';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
@@ -19,20 +19,30 @@ function myFurnitureItems() {
 
     //furniture grabs state from furniture reducer
     const myFurniture = useSelector(store => store.myFurniture);
+    const user = useSelector(store => store.user);
 
     //classes adds a variable name to call with styling choices from MUI
     const classes = useStyles();
 
     useEffect(() => {
         //on page load, get list of furniture from database
-        dispatch({ type: 'FETCH_MY_FURNITURE' });
+        dispatch({ type: 'FETCH_MY_FURNITURE', payload: user.id });
     }, []);
 
-    const handleClick = (event) => {
-        event.preventDefault();
-        history.push('/updateItem');
+    const goToUpdateItem = (event, furniture) => {
+        console.log('clicked on item', furniture);
+        //Send info on that furniture item to reducer
+        dispatch({ type: 'SET_UPDATED_ITEM', payload: furniture})
+        history.push(`/updateItem/${furniture.id}`);
     }
-    console.log(myFurniture);
+
+    function handleDelete(id) {
+        console.log(id);
+        alert('ARE YOU SURE YOU WANT TO DELETE THIS ITEM?');
+        dispatch({ type: 'DELETE_ITEM', payload: id})
+        history.push('/myItems');
+    }
+    // console.log(myFurniture);
    
     return(
         <div>
@@ -58,8 +68,8 @@ function myFurnitureItems() {
                 {/* the next portion has MUI styling to create cards for each item */}
                 <Container className={classes.cardGrid} maxWidth="md" >
                     <Grid container spacing={4}>
-                        {myFurniture.map((furniture) => {
-                            return  <Grid item key={furniture.id} xs={12} sm={6} md={4} >
+                        {myFurniture.map((furniture, index) => {
+                            return  <Grid item key={index} xs={12} sm={6} md={4} >
                             <Card className={classes.card}>
                                 <CardContent>
                                 <img
@@ -77,7 +87,8 @@ function myFurnitureItems() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="primary" onClick={handleClick}>Edit</Button>
+                                    <Button size="small" color="primary" onClick={(event) => goToUpdateItem(event, furniture)}>Edit</Button>
+                                    <Button size="small" color="secondary" onClick={() => handleDelete(furniture.id)}>Delete</Button>
                                 </CardActions>
                             </Card>
                         </Grid>

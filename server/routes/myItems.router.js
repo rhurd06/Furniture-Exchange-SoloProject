@@ -5,10 +5,12 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 //get my items from DB
 router.get('/:id', rejectUnauthenticated, (req, res) => {
-    pool.query(`SELECT * FROM "furniture" WHERE user_id=$1;`, [req.user.id])
+    pool.query(`SELECT furniture.id, picture_url, cost, location, description, furniture.user_id, "user".email FROM "furniture" 
+                JOIN "user" on "user".id = furniture.user_id
+                WHERE user_id=$1;`, [req.user.id])
         .then((results) => {
             res.send(results.rows);
-            console.log(results.rows);
+            // console.log(results.rows);
         })
         .catch((error) => {
             res.sendStatus(500);
@@ -17,19 +19,27 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 //update one of my items
-router.put('/', rejectUnauthenticated, (req, res) => {
-    // let furnitureId = req.params.id;
-    let query = `UPDATE "furniture" SET user_id=$1, picture_url=$2, cost=$3, location=$4, 
-                    description=$5, sold=$6 WHERE "id"=$1;`;
-console.log(req.body);
-    pool.query(query, [req.user.id, req.body.picture_url, req.body.cost, 
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    let furniture = req.params.id;
+    console.log(req.furniture);
+    let query = `UPDATE "furniture" SET picture_url=$2, cost=$3, location=$4, 
+                    description=$5, sold=$6 WHERE "furniture".id=$1;`;
+// console.log(req.body);
+    pool.query(query, [req.furniture, req.body.picture_url, req.body.cost, 
         req.body.location, req.body.description, req.body.sold])
         .then(() => {
-            console.log('Mark sold');
-            res.sendStatus(201);
-                pool.query(`INSERT INTO "user" ("email")
-                            VALUES ($1);`)
-                    res.sendStatus(201);
+            // console.log('Mark sold');
+            // res.sendStatus(201);
+                pool.query(`UPDATE "user" SET email=$2
+                            WHERE "id"=$1;`,
+                            [req.user.id, req.user.email])
+                    .then(() => {
+                        res.sendStatus(201);
+                    })
+                    .catch(error => {
+                        console.log(`Error updating email in put route`, error);
+                        res.sendStatus(500);
+                    })
         })
         .catch(error => {
             console.log(`Error making database query ${query}`, error);

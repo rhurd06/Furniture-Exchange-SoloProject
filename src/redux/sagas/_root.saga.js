@@ -8,6 +8,8 @@ import addFurnitureItem from './addFurnitureItem.saga';
 import updateFurnitureItem from './updateFurnitureItem.saga';
 import deleteItem from './deleteItem.saga';
 import fetchMyFurniture from './fetchMyFurniture.saga';
+import addToFavorites from './addToFavorites.saga';
+import fetchMyFavorites from './fetchMyFavorites.saga';
 
 
 // rootSaga is the primary saga.
@@ -21,9 +23,11 @@ export default function* rootSaga() {
   yield takeEvery ('FETCH_FURNITURE_TYPE', fetchFurnitureType),
   yield takeEvery ('FETCH_FURNITURE', fetchFurniture);
   yield takeEvery ('POST_FURNITURE', addFurnitureItem);
-  yield takeEvery ('SET_UPDATED_FURNITURE', updateFurnitureItem);
+  yield takeEvery ('UPDATE_FURNITURE', updateFurnitureItem);
   yield takeEvery ('DELETE_ITEM', deleteItem);
   yield takeEvery ('FETCH_MY_FURNITURE', fetchMyFurniture);
+  yield takeEvery ('POST_TO_FAVORITES', addToFavorites);
+  yield takeEvery ('FETCH_MY_FAVORITES', fetchMyFavorites);
   
   yield all([
     loginSaga(), // login saga is now registered

@@ -132,7 +132,7 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute
           exact
-          path="/updateItem"
+          path="/updateItem/:id"
           >
             <UpdateItem />
           </ProtectedRoute>
