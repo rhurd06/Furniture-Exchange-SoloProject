@@ -3,9 +3,9 @@ import axios from 'axios';
 
 function* deleteItem(action) {
     try {
-        yield axios.delete(`/api/myItems/${action.payload.id}`);
+        yield axios.delete(`/api/myItems/${action.payload}`);
         yield put({ type: 'FETCH_MY_FURNITURE' });
-        console.log(action.payload.id);
+        console.log(action.payload);
         
     }
     catch(error) {
