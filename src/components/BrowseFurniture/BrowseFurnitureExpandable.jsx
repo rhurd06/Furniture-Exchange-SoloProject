@@ -39,6 +39,7 @@ function BrowseFurnitureExpandable() {
     const classes = useStyles();
     //these states handle the card state; whether it's been expanded or not
     const [expandedId, setExpandedId] = useState(false);
+    const [favorite, setFavorite] = useState(false);
 
     //dispatch sends and receives info from sagas
     const dispatch = useDispatch();

@@ -37,11 +37,12 @@ function myFurnitureItems() {
     }
 
     function handleDelete(id) {
+        console.log(id);
         alert('ARE YOU SURE YOU WANT TO DELETE THIS ITEM?');
         dispatch({ type: 'DELETE_ITEM', payload: id})
         history.push('/myItems');
     }
-    console.log(myFurniture);
+    // console.log(myFurniture);
    
     return(
         <div>
@@ -87,7 +88,7 @@ function myFurnitureItems() {
                                 </CardContent>
                                 <CardActions>
                                     <Button size="small" color="primary" onClick={(event) => goToUpdateItem(event, furniture)}>Edit</Button>
-                                    <Button size="small" color="secondary" onClick={() => handleDelete(myFurniture.id)}>Delete</Button>
+                                    <Button size="small" color="secondary" onClick={() => handleDelete(furniture.id)}>Delete</Button>
                                 </CardActions>
                             </Card>
                         </Grid>
