@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
 //Material UI
-import { MenuItem, TextField } from '@material-ui/core';
+import { MenuItem, TextField, Button } from '@material-ui/core';
 import useStyles from './styles';
 
 const SellFurnitureForm = () => {
@@ -137,7 +137,7 @@ const SellFurnitureForm = () => {
               />
             </TextField>
           </div>
-          <button type="submit">Add Furniture Item</button>
+          <Button size="small" color="primary" type="submit">Add Furniture Item</Button>
         </form>
         // )}
         // </>
