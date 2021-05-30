@@ -48,15 +48,14 @@ const UpdateItem = () => {
           data: newUpdates,
         user_id: user.id} 
         });
-
-        // setPictureUrl('');
-        // setCost(0);
-        // setLocation('');
-        // setDescription('');
-        // setEmail('');
-        // setFurnitureType('');
-        // setSold(false);
-        // history.push('/browseFurnitureExpandable');
+        //clear inputs and send back to my items
+        setPictureUrl('');
+        setCost(0);
+        setLocation('');
+        setDescription('');
+        setEmail('');
+        setSold(false);
+        history.push('/myItems');
     };
 
     return(
