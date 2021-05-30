@@ -119,7 +119,7 @@ const UpdateItem = () => {
                 required
             />
           </div>
-          <Button size="small" color="primary" type="submit">Update Furniture Item</Button>
+          <Button size="small" color="primary" variant="contained" type="submit">Update Furniture Item</Button>
         </form>
       </div>
     );
