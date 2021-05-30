@@ -42,8 +42,14 @@ function Nav() {
         <Link className="navLink" to="/about">
           About
         </Link>
-        <Link className="navLink" to="/browseFurniture">
+        <Link className="navLink" to="/browseFurnitureExpandable">
           Browse Furniture
+        </Link>
+        <Link className="navLink" to="/myFavorites">
+          View My Favorites
+        </Link>
+        <Link className="navLink" to="/myItems">
+          View My Items
         </Link>
       </div>
     </div>

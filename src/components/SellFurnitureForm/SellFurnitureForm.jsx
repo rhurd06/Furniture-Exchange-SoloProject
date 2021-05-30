@@ -32,7 +32,6 @@ const SellFurnitureForm = () => {
                 location: location, description: description, furnitureType: furnitureType, 
                 preferredContact: preferredContact, user_id: user_id} });
 
-        history.push('/browseFurniture');
         // history.push('/itemView');
         setPictureUrl('');
         setCost(0);
@@ -41,6 +40,7 @@ const SellFurnitureForm = () => {
         setPreferredContact('');
         setUsername('');
         setFurnitureType('');
+        history.push('/browseFurnitureExpandable');
     };
 
     const handleChange = (event) => {
@@ -48,11 +48,7 @@ const SellFurnitureForm = () => {
     };
 
     return(
-        // <>
-        // {furnitureTypeReducer == undefined ? (
-        //     <>
-        //     </>
-        // ) : (
+
         <form onSubmit={submitForm}>
             <div>
             <TextField id="outlined-basic" label="pictureUrl" variant="outlined" 
@@ -125,22 +121,8 @@ const SellFurnitureForm = () => {
               />
             </TextField>
           </div>
-          <div>
-            <TextField id="outlined-basic" label="username" variant="outlined" 
-              onChange={(event) => setUsername(event.target.value)}>
-              Username:
-              <input
-                type="text"
-                name="username"
-                value={user_id}
-                required
-              />
-            </TextField>
-          </div>
           <Button size="small" color="primary" type="submit">Add Furniture Item</Button>
         </form>
-        // )}
-        // </>
     );
 };
 

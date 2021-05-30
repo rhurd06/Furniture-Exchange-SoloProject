@@ -24,8 +24,12 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import BrowseFurniture from '../BrowseFurniture/BrowseFurniture';
 import SellFurnitureForm from '../SellFurnitureForm/SellFurnitureForm';
+import ViewMyItems from '../ViewMyItems/ViewMyItems';
+import FavoritesView from '../FavoritesView/FavoritesView';
 
 import './App.css';
+import BrowseFurnitureExpandable from '../BrowseFurniture/BrowseFurnitureExpandable';
+import UpdateItem from '../UpdateItem/UpdateItem';
 
 function App() {
   const dispatch = useDispatch();
@@ -51,13 +55,13 @@ function App() {
             <AboutPage />
           </Route>
 
-          <Route
+          {/* <Route
           //to Browse furniture
           exact
           path="/browseFurniture"
           >
             <BrowseFurniture />
-          </Route>
+          </Route> */}
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
@@ -115,13 +119,35 @@ function App() {
             <LandingPage />
           </ProtectedRoute>
           <ProtectedRoute
-          // // with authRedirect:
-          // // - if logged in, redirects to "/sellFurniture"
-          // // - else shows LandingPage at "/home"
+          exact
+          path="/sellFurniture"
           >
             <SellFurnitureForm />
           </ProtectedRoute>
-
+          <ProtectedRoute
+          exact
+          path="/browseFurnitureExpandable"
+          >
+            <BrowseFurnitureExpandable />
+          </ProtectedRoute>
+          <ProtectedRoute
+          exact
+          path="/updateItem/:id"
+          >
+            <UpdateItem />
+          </ProtectedRoute>
+          <ProtectedRoute
+          exact
+          path="/myItems"
+          >
+            <ViewMyItems />
+          </ProtectedRoute>
+          <ProtectedRoute
+          exact
+          path="/myFavorites"
+          >
+            <FavoritesView />
+          </ProtectedRoute>
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
