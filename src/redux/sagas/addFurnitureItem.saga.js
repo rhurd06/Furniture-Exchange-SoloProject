@@ -2,7 +2,7 @@ import { put } from '@redux-saga/core/effects';
 import axios from 'axios';
 
 function* addFurnitureItem (action) {
-    //add furniture item to DB
+    //add furniture item to furniture table in database
     try {
         yield axios.post('/api/furniture', action.payload)
         yield put({ type: 'FETCH_FURNITURE'})
