@@ -12,6 +12,7 @@ const userRouter = require('./routes/user.router');
 const furnitureRouter = require('./routes/furniture.router');
 const furnitureTypeRouter = require('./routes/furnitureType.router');
 const myItems = require('./routes/myItems.router');
+const favoritesRouter = require('./routes/favorites.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -29,6 +30,7 @@ app.use('/api/user', userRouter);
 app.use('/api/furniture', furnitureRouter);
 app.use('/api/furnitureType', furnitureTypeRouter);
 app.use('/api/myItems', myItems);
+app.use('/api/favorites', favoritesRouter);
 
 // Serve static files
 app.use(express.static('build'));
