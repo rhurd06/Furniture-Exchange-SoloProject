@@ -35,7 +35,7 @@ function myFavoriteItems() {
                 <Toolbar>
                     <WeekendTwoToneIcon className={classes.icon} />
                     <Typography variant="h6">
-                        My Furniture
+                        My Favorites
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -43,7 +43,7 @@ function myFavoriteItems() {
                 <div className={classes.container}>
                     <Container maxWidth="sm" >
                         <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
-                            My Furniture
+                            My Favorites
                         </Typography>
                     </Container>
                 </div>
