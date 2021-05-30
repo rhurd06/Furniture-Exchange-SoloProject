@@ -121,7 +121,7 @@ const SellFurnitureForm = () => {
               />
             </TextField>
           </div>
-          <Button size="small" color="primary" type="submit">Add Furniture Item</Button>
+          <Button size="small" color="primary" variant="contained" type="submit">Add Furniture Item</Button>
         </form>
     );
 };
