@@ -52,7 +52,14 @@ function BrowseFurnitureExpandable() {
         }, [furniture]);
 
     const handleExpandClick = (i) => {
-        setExpandedId(expandedId === i ? -1 : i );
+        //expand the card to show all information
+        setExpandedId( expandedId === i ? -1 : i );
+    };
+
+    const handleAddToFavorites = () => {
+        //turn favorites to red
+        setFavorite(true);
+        dispatch({ type: 'POST_TO_FAVORITES', payload: action.payload });
     };
 
     return(
@@ -68,9 +75,11 @@ function BrowseFurnitureExpandable() {
                             <Typography> Cost: ${furniture.cost} </Typography>
                             </CardContent>
                             <CardActions disableSpacing>
-                                {/* <IconButton aria-label="add to favorites">
+                                <IconButton 
+                                onClick={() => handleAddToFavorites()}
+                                aria-label="addToFavorites">
                                     <FavoriteIcon />
-                                </IconButton> */}
+                                </IconButton>
                                 <IconButton
                                 onClick={() => handleExpandClick(i)}
                                 aria-expanded={expandedId === i}

@@ -5,6 +5,7 @@ import furnitureReducer from './furniture.reducer';
 import furnitureTypeReducer from './furnitureType.reducer';
 import myFurniture from './myFurniture.reducer';
 import editItem from './editItem.reducer';
+import myFavorites from './myFavorites.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   furnitureTypeReducer, //contains the furniture type
   myFurniture, //contains specific users' items
   editItem, //contains updated information on a specific furniture item
+  myFavorites, //contains user id and furniture id on a specific item
 });
 
 export default rootReducer;
