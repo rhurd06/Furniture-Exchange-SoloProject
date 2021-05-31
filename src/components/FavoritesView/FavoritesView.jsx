@@ -1,6 +1,6 @@
 // Material UI imports
 import { Typography, AppBar, Card, CardActions, 
-    CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container, Button } 
+    CardContent, CssBaseline, Grid, Toolbar, Container, Button } 
     from '@material-ui/core';
 import WeekendTwoToneIcon from '@material-ui/icons/WeekendTwoTone';
 import useStyles from './Styles';
@@ -20,12 +20,14 @@ function myFavoriteItems() {
     //classes adds a variable name to call with styling choices from MUI
     const classes = useStyles();
 
-        //furniture grabs state from furniture reducer
-        const myFurniture = useSelector(store => store.myFurniture);
+        //myFurniture grabs state from myFurniture reducer
+        const myFavorites = useSelector(store => store.myFavorites);
+        //user grabs state from user reducer
+        const user = useSelector(store => store.user);
     
     useEffect(() => {
         //on page load, get list of furniture from database
-        dispatch({ type: 'FETCH_MY_FAVORITES' });
+        dispatch({ type: 'FETCH_MY_FAVORITES', payload: user.id });
     }, []);
    
     return(
@@ -49,7 +51,7 @@ function myFavoriteItems() {
                 </div>
                 <Container className={classes.cardGrid} maxWidth="md" >
                     <Grid container spacing={4}>
-                        {myFurniture.map((furniture) => {
+                        {myFavorites.map((furniture) => {
                             return  <Grid item key={furniture.id} xs={12} sm={6} md={4} >
                             <Card className={classes.card}>
                                 <CardContent>
