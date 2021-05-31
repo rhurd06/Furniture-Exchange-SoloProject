@@ -5,7 +5,7 @@ function* updateFurnitureItem(action) {
     //update item in the DB
     try {
         yield axios.put(`/api/myItems/${action.payload.id}`, action.payload);
-        yield put({ type: 'FETCH_MY_FURNITURE'})
+        yield put({ type: 'FETCH_MY_FURNITURE', payload: action.payload.user_id })
         console.log('updateFurnitureItem', action.payload);
     }
     catch(error) {
