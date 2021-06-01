@@ -78,7 +78,11 @@ function BrowseFurnitureExpandable() {
                                 <IconButton 
                                 onClick={() => handleAddToFavorites()}
                                 aria-label="addToFavorites">
-                                    <FavoriteIcon />
+                                    {favorite ? (
+                                        <FavoriteIcon color="secondary"/>
+                                    ) : (
+                                        <FavoriteIcon />
+                                    )}
                                 </IconButton>
                                 <IconButton
                                 onClick={() => handleExpandClick(i)}
