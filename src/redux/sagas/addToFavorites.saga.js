@@ -6,7 +6,7 @@ function* addToFavorites(action){
     try {
         yield axios.post('/api/favorites', action.payload)
         yield put({ type: 'FETCH_FURNITURE'})
-        console.log(action.payload);
+        console.log('adding to favorites:', action.payload);
     }
     catch(error) {
         alert(`Sorry I couldn't add that to your favorites`);
