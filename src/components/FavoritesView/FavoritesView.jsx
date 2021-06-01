@@ -19,13 +19,13 @@ function myFavoriteItems() {
 
         //myFurniture grabs state from myFurniture reducer
         const myFavorites = useSelector(store => store.myFavorites);
-    
+        const user = useSelector(store => store.user);
+
+    console.log(user.id);
     useEffect(() => {
         //on page load, get list of furniture from database
-        dispatch({ type: 'FETCH_MY_FAVORITES', payload: id });
+        dispatch({ type: 'FETCH_MY_FAVORITES', payload: user.id });
     }, []);
-
-    console.log(payload.id);
    
     return(
         <div>
