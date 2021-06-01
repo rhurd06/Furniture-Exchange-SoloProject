@@ -32,8 +32,7 @@ function FurnitureCardTemplate({furniture, i}){
     const handleAddToFavorites = (i) => {
         //turn favorites to red
         setFavorite(favorite === i ? -1 : i);
-        dispatch({ type: 'POST_TO_FAVORITES' });
-        console.log(id);
+        dispatch({ type: 'POST_TO_FAVORITES', payload: furniture });
     };
 return(
 <Card className={classes.card}>
