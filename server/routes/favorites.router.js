@@ -5,8 +5,11 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 //get favorites from Database
 router.get('/', rejectUnauthenticated, (req, res) => {
-    const query = `SELECT * from "favorites
-                    WHERE user_id=$1;`;
+    const query = `SELECT user_id, furniture_id, picture_url, cost, 
+                    description, "user".username "user".email from "favorites
+                    JOIN user on favorites.user_id = user.id
+                    JOIN furniture on favorites.furniture_id = furniture.id
+                    WHERE id=$1;`;
     pool.query(query)
         .then((results) => {
             res.sendStatus(results.rows);
