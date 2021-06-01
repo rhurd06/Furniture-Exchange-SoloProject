@@ -5,17 +5,14 @@ import { Typography, AppBar, Card, CardActions,
 import WeekendTwoToneIcon from '@material-ui/icons/WeekendTwoTone';
 import useStyles from './Styles';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
 
 
 function myFavoriteItems() {
     //dispatch sends and receives info from sagas
     const dispatch = useDispatch();
 
-    //history helps us to navigate to another page
-    const history = useHistory();
 
     //classes adds a variable name to call with styling choices from MUI
     const classes = useStyles();
@@ -27,6 +24,8 @@ function myFavoriteItems() {
         //on page load, get list of furniture from database
         dispatch({ type: 'FETCH_MY_FAVORITES', payload: id });
     }, []);
+
+    console.log(payload.id);
    
     return(
         <div>
@@ -65,6 +64,10 @@ function myFavoriteItems() {
                                         {furniture.description}
                                         <br />
                                         {furniture.location}
+                                        <br />
+                                        {furniture.username}
+                                        <br />
+                                        {furniture.email}
                                     </Typography>
                                 </CardContent>
                             </Card>
