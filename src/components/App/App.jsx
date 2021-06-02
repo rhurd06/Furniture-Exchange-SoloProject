@@ -5,31 +5,25 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-
-import { Typography } from '@material-ui/core';
-
-
 import { useDispatch } from 'react-redux';
 
+//import component files
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import BrowseFurniture from '../BrowseFurniture/BrowseFurniture';
 import SellFurnitureForm from '../SellFurnitureForm/SellFurnitureForm';
 import ViewMyItems from '../ViewMyItems/ViewMyItems';
 import FavoritesView from '../FavoritesView/FavoritesView';
+import UpdateItem from '../UpdateItem/UpdateItem';
+import BrowseFurniture from '../BrowseFurniture/BrowseFurniture';
 
 import './App.css';
-import BrowseFurnitureExpandable from '../BrowseFurniture/BrowseFurnitureExpandable';
-import UpdateItem from '../UpdateItem/UpdateItem';
 
 function App() {
   const dispatch = useDispatch();
@@ -54,14 +48,6 @@ function App() {
           >
             <AboutPage />
           </Route>
-
-          {/* <Route
-          //to Browse furniture
-          exact
-          path="/browseFurniture"
-          >
-            <BrowseFurniture />
-          </Route> */}
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
@@ -126,9 +112,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute
           exact
-          path="/browseFurnitureExpandable"
+          path="/browseFurniture"
           >
-            <BrowseFurnitureExpandable />
+            <BrowseFurniture />
           </ProtectedRoute>
           <ProtectedRoute
           exact

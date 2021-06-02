@@ -65,9 +65,9 @@ function myFavoriteItems() {
                                         <br />
                                         {furniture.location}
                                         <br />
-                                        {furniture.username}
+                                        {/* {furniture.username}
                                         <br />
-                                        {furniture.email}
+                                        {furniture.email} */}
                                     </Typography>
                                 </CardContent>
                             </Card>
