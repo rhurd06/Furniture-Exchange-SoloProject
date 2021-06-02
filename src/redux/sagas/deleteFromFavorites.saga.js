@@ -4,7 +4,7 @@ import axios from 'axios';
 function* deleteFromFavorites(action) {
     try {
         console.log(action.payload);
-        yield axios.delete(`/api/myFavorites/${action.payload}`);
+        yield axios.delete(`/api/favorites/${action.payload}`);
         yield put({ type: 'FETCH_MY_FAVORITES' });
         
     }

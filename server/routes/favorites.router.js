@@ -40,7 +40,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 //delete item from my favorites
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     console.log(req.params.id, req.user.id);
-    const query = `DELETE FROM "favorites" (WHERE favorites.id=$1) AND (favorites.user_id=$2);`;
+    const query = `DELETE FROM "favorites" WHERE (furniture_id=$1) AND (user_id=$2);`;
     pool.query(query, [req.params.id, req.user.id])
         .then(() => { res.sendStatus(201) 
         })
