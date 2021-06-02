@@ -37,4 +37,16 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         })
 });
 
+//delete item from my favorites
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    const query = `DELETE FROM "favorites" (WHERE favorites.id=$1) AND (favorites.user_id=$2);`;
+    pool.query(query, [req.params.id, req.user.id])
+        .then(() => { res.sendStatus(201) 
+        })
+        .catch(error => {
+            console.log('Error deleting favorites item', error);
+            res.sendStatus(500);
+        });
+});
+
 module.exports = router;

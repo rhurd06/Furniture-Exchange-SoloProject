@@ -10,6 +10,7 @@ import deleteItem from './deleteItem.saga';
 import fetchMyFurniture from './fetchMyFurniture.saga';
 import addToFavorites from './addToFavorites.saga';
 import fetchMyFavorites from './fetchMyFavorites.saga';
+import deleteFromFavorites from './deleteFromFavorites.saga';
 
 
 // rootSaga is the primary saga.
@@ -28,6 +29,7 @@ export default function* rootSaga() {
   yield takeEvery ('FETCH_MY_FURNITURE', fetchMyFurniture);
   yield takeEvery ('POST_TO_FAVORITES', addToFavorites);
   yield takeEvery ('FETCH_MY_FAVORITES', fetchMyFavorites);
+  yield takeEvery ('DELETE_FROM_FAVORITES', deleteFromFavorites);
   
   yield all([
     loginSaga(), // login saga is now registered
