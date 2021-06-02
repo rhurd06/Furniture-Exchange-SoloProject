@@ -15,6 +15,7 @@ function InfoPage() {
         <li>Material UI</li>
         <li>JavaScript</li>
         <li>React.js</li>
+        <li>React-saga</li>
         <li>Redux</li>
         <li>Node.js</li>
         <li>Postico</li>
