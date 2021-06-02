@@ -81,7 +81,7 @@ function myFavoriteItems() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                <Button size="small" color="secondary" onClick={() => handleDelete(furniture.id)}>Delete</Button>
+                                <Button size="small" color="secondary" onClick={() => handleDelete(furniture.furniture_id)}>Delete</Button>
                                 </CardActions>
                             </Card>
                         </Grid>
