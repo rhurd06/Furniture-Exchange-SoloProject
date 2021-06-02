@@ -7,11 +7,14 @@ import useStyles from './Styles';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 
 
 function myFavoriteItems() {
     //dispatch sends and receives info from sagas
     const dispatch = useDispatch();
+
+    const history = useHistory();
 
 
     //classes adds a variable name to call with styling choices from MUI
@@ -26,6 +29,13 @@ function myFavoriteItems() {
         //on page load, get list of furniture from database
         dispatch({ type: 'FETCH_MY_FAVORITES', payload: user.id });
     }, []);
+
+    function handleDelete(id) {
+        console.log(id);
+        alert('ARE YOU SURE YOU WANT TO DELETE THIS ITEM FROM YOUR FAVORITES?');
+        dispatch({ type: 'DELETE_FROM_FAVORITES', payload: id})
+        history.push('/myFavorites');
+    }
    
     return(
         <div>
@@ -70,6 +80,9 @@ function myFavoriteItems() {
                                         {furniture.email} */}
                                     </Typography>
                                 </CardContent>
+                                <CardActions>
+                                <Button size="small" color="secondary" onClick={() => handleDelete(furniture.id)}>Delete</Button>
+                                </CardActions>
                             </Card>
                         </Grid>
                         })}

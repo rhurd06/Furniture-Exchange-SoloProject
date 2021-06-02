@@ -38,10 +38,7 @@ function Nav() {
             </Link>
           </>
         )}
-
-        <Link className="navLink" to="/about">
-          About
-        </Link>
+        {/* Links that appear to logged in users only */}
         <Link className="navLink" to="/browseFurniture">
           Browse Furniture
         </Link>
