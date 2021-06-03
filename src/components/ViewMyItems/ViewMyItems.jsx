@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
+import './ViewMyItems.css';
+
 
 function myFurnitureItems() {
     //dispatch sends and receives info from sagas
@@ -47,23 +49,23 @@ function myFurnitureItems() {
     return(
         <div>
             <CssBaseline />
-            <AppBar position="relative" >
+            <AppBar position="relative">
                 {/* Banner across the top with sofa icon */}
-                <Toolbar>
+                <Toolbar className="appBar">
                     <WeekendTwoToneIcon className={classes.icon} />
-                    <Typography variant="h6">
-                        My Furniture
+                    <Typography align="center" variant="h3">
+                        My Furniture Items
                     </Typography>
                 </Toolbar>
             </AppBar>
             <main>
                 {/* Header */}
                 <div className={classes.container}>
-                    <Container maxWidth="sm" >
-                        <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
+                    {/* <Container maxWidth="sm" >
+                        <Typography variant="h2" align="center" color="textPrimary" className="items" gutterBottom>
                             My Furniture
                         </Typography>
-                    </Container>
+                    </Container> */}
                 </div>
                 {/* the next portion has MUI styling to create cards for each item */}
                 <Container className={classes.cardGrid} maxWidth="md" >

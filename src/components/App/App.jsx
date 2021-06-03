@@ -8,7 +8,6 @@ import {
 import { useDispatch } from 'react-redux';
 
 //import component files
-import Nav from '../Nav/Nav';
 import NavDrawer from '../NavDrawer/NavDrawer';
 import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
@@ -35,7 +34,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <NavDrawer />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
@@ -44,6 +43,7 @@ function App() {
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
+
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
@@ -58,9 +58,6 @@ function App() {
             path="/info"
           >
             <InfoPage />
-          </ProtectedRoute>
-          <ProtectedRoute>
-            <NavDrawer />
           </ProtectedRoute>
 
           {/* When a value is supplied for the authRedirect prop the user will

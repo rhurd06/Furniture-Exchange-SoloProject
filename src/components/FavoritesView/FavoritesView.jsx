@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
+import './FavoritesView.css';
+
 
 function myFavoriteItems() {
     //dispatch sends and receives info from sagas
@@ -40,22 +42,15 @@ function myFavoriteItems() {
     return(
         <div>
             <CssBaseline />
-            <AppBar position="relative" >
-                <Toolbar>
+            <AppBar position="relative">
+                <Toolbar className="appBar">
                     <WeekendTwoToneIcon className={classes.icon} />
-                    <Typography variant="h6">
+                    <Typography variant="h3">
                         My Favorites
                     </Typography>
                 </Toolbar>
             </AppBar>
             <main>
-                <div className={classes.container}>
-                    <Container maxWidth="sm" >
-                        <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
-                            My Favorites
-                        </Typography>
-                    </Container>
-                </div>
                 <Container className={classes.cardGrid} maxWidth="md" >
                     <Grid container spacing={4}>
                         {myFavorites.map((furniture) => {
