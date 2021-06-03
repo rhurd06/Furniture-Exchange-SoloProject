@@ -5,31 +5,24 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-
-import { Typography } from '@material-ui/core';
-
-
 import { useDispatch } from 'react-redux';
 
-import Nav from '../Nav/Nav';
+//import component files
+import NavDrawer from '../NavDrawer/NavDrawer';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
-import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import BrowseFurniture from '../BrowseFurniture/BrowseFurniture';
 import SellFurnitureForm from '../SellFurnitureForm/SellFurnitureForm';
 import ViewMyItems from '../ViewMyItems/ViewMyItems';
 import FavoritesView from '../FavoritesView/FavoritesView';
+import UpdateItem from '../UpdateItem/UpdateItem';
+import BrowseFurniture from '../BrowseFurniture/BrowseFurniture';
 
 import './App.css';
-import BrowseFurnitureExpandable from '../BrowseFurniture/BrowseFurnitureExpandable';
-import UpdateItem from '../UpdateItem/UpdateItem';
 
 function App() {
   const dispatch = useDispatch();
@@ -41,32 +34,16 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <NavDrawer />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
-
-          {/* Visiting localhost:3000/about will show the about page. */}
-          <Route
-            // shows AboutPage at all times (logged in or not)
-            exact
-            path="/about"
-          >
-            <AboutPage />
-          </Route>
-
-          {/* <Route
-          //to Browse furniture
-          exact
-          path="/browseFurniture"
-          >
-            <BrowseFurniture />
-          </Route> */}
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
+
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
@@ -126,9 +103,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute
           exact
-          path="/browseFurnitureExpandable"
+          path="/browseFurniture"
           >
-            <BrowseFurnitureExpandable />
+            <BrowseFurniture />
           </ProtectedRoute>
           <ProtectedRoute
           exact
