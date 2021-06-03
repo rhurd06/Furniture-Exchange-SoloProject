@@ -60,11 +60,6 @@ function myFurnitureItems() {
             <main>
                 {/* Header */}
                 <div className={classes.container}>
-                    {/* <Container maxWidth="sm" >
-                        <Typography variant="h2" align="center" color="textPrimary" className="items" gutterBottom>
-                            My Furniture
-                        </Typography>
-                    </Container> */}
                 </div>
                 {/* the next portion has MUI styling to create cards for each item */}
                 <Container className={classes.cardGrid} maxWidth="md" >
