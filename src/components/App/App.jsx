@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 
 //import component files
 import Nav from '../Nav/Nav';
+import NavDrawer from '../NavDrawer/NavDrawer';
 import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import UserPage from '../UserPage/UserPage';
@@ -57,6 +58,9 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+          <ProtectedRoute>
+            <NavDrawer />
           </ProtectedRoute>
 
           {/* When a value is supplied for the authRedirect prop the user will
