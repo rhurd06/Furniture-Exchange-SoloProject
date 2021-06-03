@@ -11,7 +11,6 @@ import useStyles from './Styles';
 
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router';
 
 function FurnitureCardTemplate({furniture, i}){
 
@@ -19,7 +18,6 @@ function FurnitureCardTemplate({furniture, i}){
      const classes = useStyles();
 
      const dispatch = useDispatch();
-     const history = useHistory();
 
      //these states handle the card state; whether it's been expanded or not
      const [expandedId, setExpandedId] = useState(false);

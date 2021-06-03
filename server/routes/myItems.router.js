@@ -48,7 +48,8 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const query = `DELETE FROM "furniture" WHERE id=$1 AND user_id=$2;`;
     pool.query(query, [req.params.id, req.user.id])
-        .then(() => { res.sendStatus(201) 
+        .then(() => { 
+            res.sendStatus(201) 
         })
         .catch(error => {
             console.log('Error deleting item', error);
