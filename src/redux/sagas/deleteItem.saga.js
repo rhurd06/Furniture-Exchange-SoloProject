@@ -2,10 +2,14 @@ import { put } from '@redux-saga/core/effects';
 import axios from 'axios';
 
 function* deleteItem(action) {
+    console.log(action.payload);
     try {
+        //delete from Favorites
+        yield axios.delete(`api/favorites/${action.payload}`);
+        //delete from View My Items
         yield axios.delete(`/api/myItems/${action.payload}`);
+
         yield put({ type: 'FETCH_MY_FURNITURE' });
-        console.log(action.payload);
         
     }
     catch(error) {
