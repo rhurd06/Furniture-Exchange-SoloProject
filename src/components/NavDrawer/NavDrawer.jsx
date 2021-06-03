@@ -5,9 +5,14 @@ import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+// import HomeIcon from '@material-ui/icons/Home';
+// import InfoIcon from '@material-ui/icons/Info';
+
 
 import clsx from 'clsx';
 import { useState } from 'react';
+import { useHistory } from 'react-router';
+import LogOutButton from '../LogOutButton/LogOutButton';
 
 const drawerWidth = 240;
 
@@ -72,6 +77,7 @@ function navDrawer() {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = useState(false);
+    const history = useHistory();
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -81,6 +87,32 @@ function navDrawer() {
         setOpen(false);
     };
 
+    const menuItems = [
+        {
+            item: 'Home',
+            path: '/home'
+        },
+        {
+            item: 'Info Page',
+            path: '/info'
+        },
+        {
+            item: 'Browse Furniture',
+            path: '/browseFurniture'
+        },
+        {
+            item: 'Sell Furniture Form',
+            path: '/sellFurniture'
+        },
+        {
+            item: 'View My Items',
+            path: '/myItems'
+        },
+        {
+            item: 'View My Favorites',
+            path: '/myFavorites'
+        }
+    ];
 
     return(
         <div>
@@ -111,13 +143,17 @@ function navDrawer() {
                     </IconButton>
                 </div>
                 <Divider />
-                <List>
-                    {[ 'Home', 'Info Page', 'Browse Furniture', 'Sell Furniture Form', 
-                    'View My Items', 'View My Favorites', 'Logout' ].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemText primary={text} />
+                <List color="secondary">
+                    {menuItems.map((item, index) => (
+                        <ListItem button key={item.text}
+                            onClick={() => history.push(item.path)}
+                        >
+                            <ListItemText color="primary">{item.text}</ListItemText>
                         </ListItem>
                     ))}
+                    <ListItem>
+                        <LogOutButton />
+                    </ListItem>
                 </List>
             </Drawer>
         </div>
