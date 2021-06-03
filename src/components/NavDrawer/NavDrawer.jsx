@@ -7,11 +7,15 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 // import HomeIcon from '@material-ui/icons/Home';
 // import InfoIcon from '@material-ui/icons/Info';
-
+// import SellIcon from '@material-ui/icons/Sell';
+// import FavoriteIcon from '@material-ui/icons/Favorite';
+// import CollectionsIcon from '@material-ui/icons/Collections';
+// import ViewComfyIcon from '@material-ui/icons/ViewComfy';
 
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 
 const drawerWidth = 240;
@@ -79,6 +83,16 @@ function navDrawer() {
     const [open, setOpen] = useState(false);
     const history = useHistory();
 
+    const user = useSelector((store) => store.user);
+        let loginLinkData = {
+            path: '/login',
+            text: 'Login / Register',
+        };
+        if (user.id != null) {
+            loginLinkData.path = '/user';
+            loginLinkData.text = 'Home';
+        }
+
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -89,27 +103,27 @@ function navDrawer() {
 
     const menuItems = [
         {
-            item: 'Home',
+            text: 'Home',
             path: '/home'
         },
         {
-            item: 'Info Page',
+            text: 'Info Page',
             path: '/info'
         },
         {
-            item: 'Browse Furniture',
+            text: 'Browse Furniture',
             path: '/browseFurniture'
         },
         {
-            item: 'Sell Furniture Form',
+            text: 'Sell Furniture Form',
             path: '/sellFurniture'
         },
         {
-            item: 'View My Items',
+            text: 'View My Items',
             path: '/myItems'
         },
         {
-            item: 'View My Favorites',
+            text: 'View My Favorites',
             path: '/myFavorites'
         }
     ];
