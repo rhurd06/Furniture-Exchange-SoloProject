@@ -35,26 +35,26 @@ function LoginForm() {
         </h3>
       )}
       <div>
-        <TextField id="outlined-basic" label="username" variant="outlined">
+        <TextField id="outlined-basic" label="username" variant="outlined"
+          onChange={(event) => setUsername(event.target.value)}>
           Username:
           <input
             type="text"
             name="username"
             required
             value={username}
-            onChange={(event) => setUsername(event.target.value)}
           />
         </TextField>
       </div>
       <div>
-        <TextField id="outlined-basic" label="password" variant="outlined">
+        <TextField id="outlined-basic" label="password" variant="outlined"
+          onChange={(event) => setPassword(event.target.value)}>
           Password:
           <input
             type="password"
             name="password"
             required
             value={password}
-            onChange={(event) => setPassword(event.target.value)}
           />
         </TextField>
       </div>
