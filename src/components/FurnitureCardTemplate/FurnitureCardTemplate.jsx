@@ -11,13 +11,15 @@ import useStyles from './Styles';
 
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 
 function FurnitureCardTemplate({furniture, i}){
 
      //classes adds a variable name to call with styling choices from MUI
      const classes = useStyles();
 
-     const dispatch=useDispatch();
+     const dispatch = useDispatch();
+     const history = useHistory();
 
      //these states handle the card state; whether it's been expanded or not
      const [expandedId, setExpandedId] = useState(false);
@@ -29,11 +31,30 @@ function FurnitureCardTemplate({furniture, i}){
         setExpandedId( expandedId === i ? -1 : i );
     };
 
+    // const checkId = (i) => {
+    //     for (let fav of favorite) {
+    //         if (fav.id === item.fav.id) {
+    //             return true;
+    //         } //end if statement
+    //         else {
+    //             false;
+    //         } //end else statement
+    //     } //end for loop
+    // } //end checkId
+
     const handleAddToFavorites = (i) => {
         //turn favorites to red
         setFavorite(favorite === i ? -1 : i);
         dispatch({ type: 'POST_TO_FAVORITES', payload: furniture });
     };
+
+    function handleDelete(id) {
+        console.log(id);
+        alert('ARE YOU SURE YOU WANT TO DELETE THIS ITEM FROM YOUR FAVORITES?');
+        dispatch({ type: 'DELETE_FROM_FAVORITES', payload: id})
+        history.push('/browseFurniture');
+    }
+
 return(
 <Card className={classes.card}>
                             <CardContent>
@@ -43,13 +64,23 @@ return(
                             <Typography> Cost: ${furniture.cost} </Typography>
                             </CardContent>
                             <CardActions disableSpacing>
+                            {/* <CardActions>
+                                {checkId(i) ? (
+                                    <IconButton onClick={() => handleDelete(i)}>
+                                        <FavoriteIcon color="secondary" />
+                                    </IconButton>
+                                ) : (
+                                    <IconButton onClick={() => handleAddToFavorites(i)}>
+                                        <FavoriteIcon />
+                                    </IconButton>
+                                )}
+                            </CardActions> */}
                                 <IconButton 
-                                onClick={() => handleAddToFavorites(i)}
                                 aria-label="addToFavorites">
                                     {favorite ? (
-                                        <FavoriteIcon color="secondary"/>
+                                        <FavoriteIcon color="secondary" onClick={() => handleDelete(furniture.furniture_id)} />
                                     ) : (
-                                        <FavoriteIcon />
+                                        <FavoriteIcon  onClick={() => handleAddToFavorites(i)} />
                                     )}
                                 </IconButton>
                                 <IconButton

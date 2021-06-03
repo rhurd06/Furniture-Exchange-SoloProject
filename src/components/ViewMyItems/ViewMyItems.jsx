@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
+import './ViewMyItems.css';
+
 
 function myFurnitureItems() {
     //dispatch sends and receives info from sagas
@@ -36,34 +38,33 @@ function myFurnitureItems() {
         history.push(`/updateItem/${furniture.id}`);
     }
 
-    function handleDelete(id) {
-        console.log(id);
+    function handleDelete(furniture) {
+        console.log(furniture.id);
         alert('ARE YOU SURE YOU WANT TO DELETE THIS ITEM?');
-        dispatch({ type: 'DELETE_ITEM', payload: id})
+        dispatch({ type: 'DELETE_ITEM', payload: furniture.id})
         history.push('/myItems');
     }
-    // console.log(myFurniture);
    
     return(
         <div>
             <CssBaseline />
-            <AppBar position="relative" >
+            <AppBar position="relative">
                 {/* Banner across the top with sofa icon */}
-                <Toolbar>
+                <Toolbar className="appBar">
                     <WeekendTwoToneIcon className={classes.icon} />
-                    <Typography variant="h6">
-                        My Furniture
+                    <Typography align="center" variant="h3">
+                        My Furniture Items
                     </Typography>
                 </Toolbar>
             </AppBar>
             <main>
                 {/* Header */}
                 <div className={classes.container}>
-                    <Container maxWidth="sm" >
-                        <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
+                    {/* <Container maxWidth="sm" >
+                        <Typography variant="h2" align="center" color="textPrimary" className="items" gutterBottom>
                             My Furniture
                         </Typography>
-                    </Container>
+                    </Container> */}
                 </div>
                 {/* the next portion has MUI styling to create cards for each item */}
                 <Container className={classes.cardGrid} maxWidth="md" >
@@ -88,7 +89,7 @@ function myFurnitureItems() {
                                 </CardContent>
                                 <CardActions>
                                     <Button size="small" color="primary" onClick={(event) => goToUpdateItem(event, furniture)}>Edit</Button>
-                                    <Button size="small" color="secondary" onClick={() => handleDelete(furniture.id)}>Delete</Button>
+                                    <Button size="small" color="secondary" onClick={() => handleDelete(furniture)}>Delete</Button>
                                 </CardActions>
                             </Card>
                         </Grid>
