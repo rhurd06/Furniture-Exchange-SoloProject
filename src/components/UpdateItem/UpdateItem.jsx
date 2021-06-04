@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 
+import './UpdateItem.css';
+
 //Material UI
 import { TextField, Button } from '@material-ui/core';
 import useStyles from './styles';
@@ -59,7 +61,7 @@ const UpdateItem = () => {
     };
 
     return(
-      <div>
+      <div className="form">
         <form onSubmit={(event) => submitForm(event)}>
             <div>
             <TextField id="outlined-basic" label="pictureUrl" variant="outlined" 
