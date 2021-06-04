@@ -56,11 +56,10 @@ function RegisterForm() {
         </TextField>
       </div>
       <div>
-        <TextField id="outlined-basic" label="password" variant="outlined"
+        <TextField id="outlined-basic" label="password" type="password" variant="outlined"
           onChange={(event) => setPassword(event.target.value)}>
           Password:
           <input
-            type="password"
             name="password"
             value={password}
             required
