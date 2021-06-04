@@ -10,7 +10,11 @@ This application allows users who are looking to buy or sell furniture a platfor
 
 On the Browse Furniture page users will see cards with various items. These cards have a heart icon in which they can click to mark it as a favorite. There is also a down arrow icon to expand the card showing even more information about that particular item.
 
+![Sell](./wireframes/addItemWireframe.png)
+
 Users can navigate to the Sell Furniture Form page where they can enter in information of an item they would like to post for sale.
+
+![Edit](./wireframes/editItemWireframe.png)
 
 If the user decides they want to change something about an item they've added they can navigate to the View My Items page. On this view the user clicks on either the delete button to completely remove it from the browser and the database or the edit button. The edit button pulls up another page where the current information is already prefilled and the user can update the fields they want.
 
