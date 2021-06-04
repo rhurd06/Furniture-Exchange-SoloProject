@@ -1,5 +1,17 @@
+# Furniture Exchange (Solo Project)
 
-# EDA Project
+## Description
+
+Duration: 2 weeks
+
+This application allows users who are looking to buy or sell furniture a platform on which to do so. Users will log into the app and be given options to browse available items, add an item of their own, update or delete one of their items or favorite one they are interested in.
+
+On the Browse Furniture page users will see cards with various items. These cards have a heart icon in which they can click to mark it as a favorite. There is also a down arrow icon to expand the card showing even more information about that particular item.
+
+Users can navigate to the Sell Furniture Form page where they can enter in information of an item they would like to post for sale.
+
+If the user decides they want to change something about an item they've added they can navigate to the View My Items page. On this view the user clicks on either the delete button to completely remove it from the browser and the database or the edit button. The edit button pulls up another page where the current information is already prefilled and the user can update the fields they want.
+
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
 We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
@@ -7,7 +19,6 @@ We **STRONGLY** recommend following these instructions carefully. It's a lot, an
 ## Use the Template for This Repository (Don't Clone)
 
 - Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account.
-
 
 ## Prerequisites
 
