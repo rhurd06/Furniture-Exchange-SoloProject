@@ -6,6 +6,8 @@ Duration: 2 weeks
 
 This application allows users who are looking to buy or sell furniture a platform on which to do so. Users will log into the app and be given options to browse available items, add an item of their own, update or delete one of their items or favorite one they are interested in.
 
+![Browse](./wireframes/browseFurnitureWireframe.png)
+
 On the Browse Furniture page users will see cards with various items. These cards have a heart icon in which they can click to mark it as a favorite. There is also a down arrow icon to expand the card showing even more information about that particular item.
 
 Users can navigate to the Sell Furniture Form page where they can enter in information of an item they would like to post for sale.
