@@ -12,6 +12,8 @@ Users can navigate to the Sell Furniture Form page where they can enter in infor
 
 If the user decides they want to change something about an item they've added they can navigate to the View My Items page. On this view the user clicks on either the delete button to completely remove it from the browser and the database or the edit button. The edit button pulls up another page where the current information is already prefilled and the user can update the fields they want.
 
+There is a View My Favorites page so users can see the items they marked as favorited earlier. This view also gives the user an opportunity to delete it from their list if they change their mind. If the selling user deletes the item it is automatically removed from any other users view, including the favorites page.
+
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
 We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
