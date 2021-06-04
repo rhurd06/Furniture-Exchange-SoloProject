@@ -12,11 +12,14 @@ On the Browse Furniture page users will see cards with various items. These card
 
 ![Sell](./wireframes/addItemWireframe.png)
 
-Users can navigate to the Sell Furniture Form page where they can enter in information of an item they would like to post for sale.
+When a user is ready to sell an item of their own they'll navigate to the Sell Furniture Form. The form is pretty easy to fill out and once they click 'Add Furniture Item' their item gets added effortlessly and the user is then navigated back to the Browse Furniture page.
 
+1[MyItems](./wireframes/myItemsWireframe.png)
 ![Edit](./wireframes/editItemWireframe.png)
 
 If the user decides they want to change something about an item they've added they can navigate to the View My Items page. On this view the user clicks on either the delete button to completely remove it from the browser and the database or the edit button. The edit button pulls up another page where the current information is already prefilled and the user can update the fields they want.
+
+![Favorites](./wireframes/myFavsWireframe.png)
 
 There is a View My Favorites page so users can see the items they marked as favorited earlier. This view also gives the user an opportunity to delete it from their list if they change their mind. If the selling user deletes the item it is automatically removed from any other users view, including the favorites page.
 
