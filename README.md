@@ -23,6 +23,17 @@ If the user decides they want to change something about an item they've added th
 
 There is a View My Favorites page so users can see the items they marked as favorited earlier. This view also gives the user an opportunity to delete it from their list if they change their mind. If the selling user deletes the item it is automatically removed from any other users view, including the favorites page.
 
+## Installation
+
+1. Clone this repository and open in VS Code (or your preferred code editor)
+1. Run 'npm install' to retreive all the dependencies
+1. Create the database in Postico, or another database
+1. Name the database "furniture-exchange" or make the necessary changes in the server/modules/pool.js file
+1. Create the tables as they are in the database.sql file
+1. Open two terminal windows:
+1. Run 'npm run server' in the first one
+1. Run 'npm run client' in the second
+
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
 We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
