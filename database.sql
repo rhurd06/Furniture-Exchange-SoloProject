@@ -16,7 +16,6 @@ CREATE TABLE "user" (
 	"username" VARCHAR (80) UNIQUE NOT NULL,
 	"password" VARCHAR (1000) NOT NULL,
 	"email" VARCHAR (1000) NOT NULL,
-	"phone_number" integer
 	);
 	
 CREATE TABLE "furniture" (
