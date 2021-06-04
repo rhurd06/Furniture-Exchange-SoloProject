@@ -20,10 +20,12 @@ function InfoPage() {
         <li>React-saga</li>
         <li>Redux</li>
         <li>Node.js</li>
+        <li>JSON</li>
+        <li>Express</li>
+        <li>Passport</li>
         <li>Postico</li>
         <li>PostgreSQL</li>
         <li>SQL</li>
-        <li>JSON</li>
       </ul>
     </div>
   );
