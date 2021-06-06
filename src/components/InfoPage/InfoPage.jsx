@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './InfoPage.css';
+
 // This is one of our simplest components
 // It doesn't have local state
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -7,20 +9,23 @@ import React from 'react';
 
 function InfoPage() {
   return (
-    <div className="container">
-      <p>Technologies used to build this app:</p>
-      <ul>
+    <div>
+      <p className="header">Technologies used to build this app:</p>
+      <ul className="container">
         <li>HTML</li>
         <li>CSS</li>
         <li>Material UI</li>
         <li>JavaScript</li>
         <li>React.js</li>
+        <li>React-saga</li>
         <li>Redux</li>
         <li>Node.js</li>
+        <li>JSON</li>
+        <li>Express</li>
+        <li>Passport</li>
         <li>Postico</li>
         <li>PostgreSQL</li>
         <li>SQL</li>
-        <li>JSON</li>
       </ul>
     </div>
   );

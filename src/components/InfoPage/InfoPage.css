@@ -1,0 +1,14 @@
+.header {
+  text-align: center;
+  font-size: 30px;
+  background-color: blanchedalmond;
+  color: black;
+  border-style: groove;
+  border-radius: black;
+  border-width: 3px;
+}
+.container {
+  text-align: center;
+  font-size: 20px;
+  list-style: none;
+}

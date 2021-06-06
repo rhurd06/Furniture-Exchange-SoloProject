@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 
+import './UpdateItem.css';
+
 //Material UI
 import { TextField, Button } from '@material-ui/core';
 import useStyles from './styles';
@@ -12,10 +14,13 @@ const UpdateItem = () => {
     let {id} = useParams();
 
     useEffect(() => {
-      dispatch({type: 'FETCH_MY_FURNITURE'})
+      console.log('user id:', user.id);
+      dispatch({type: 'FETCH_MY_FURNITURE', payload: user.id })
     }, []);
 
+
     const furniture = useSelector(store => store.editItem);
+    const user = useSelector(store => store.user);
 
     console.log(furniture);
 
@@ -42,21 +47,21 @@ const UpdateItem = () => {
         console.log('Clicked submit form');
         dispatch({ type: 'UPDATE_FURNITURE', payload: {
           id: id,
-          data: newUpdates} 
+          data: newUpdates,
+        user_id: user.id} 
         });
-
-        // setPictureUrl('');
-        // setCost(0);
-        // setLocation('');
-        // setDescription('');
-        // setEmail('');
-        // setFurnitureType('');
-        // setSold(false);
-        // history.push('/browseFurnitureExpandable');
+        //clear inputs and send back to my items
+        setPictureUrl('');
+        setCost(0);
+        setLocation('');
+        setDescription('');
+        setEmail('');
+        setSold(false);
+        history.push('/myItems');
     };
 
     return(
-      <div>
+      <div className="form">
         <form onSubmit={(event) => submitForm(event)}>
             <div>
             <TextField id="outlined-basic" label="pictureUrl" variant="outlined" 
@@ -119,7 +124,7 @@ const UpdateItem = () => {
                 required
             />
           </div>
-          <Button size="small" color="primary" type="submit">Update Furniture Item</Button>
+          <Button size="small" color="primary" variant="contained" type="submit">Update Furniture Item</Button>
         </form>
       </div>
     );

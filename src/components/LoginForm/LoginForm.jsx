@@ -1,7 +1,9 @@
-import { use } from 'passport';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
+
+// Material UI imports
+import { TextField } from '@material-ui/core';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -25,6 +27,7 @@ function LoginForm() {
     }
   }; // end login
 
+
   return (
     <form className="formPanel" onSubmit={login}>
       <h2>Login</h2>
@@ -34,28 +37,27 @@ function LoginForm() {
         </h3>
       )}
       <div>
-        <label htmlFor="username">
+        <TextField id="outlined-basic" label="username" variant="outlined"
+          onChange={(event) => setUsername(event.target.value)}>
           Username:
           <input
             type="text"
             name="username"
             required
             value={username}
-            onChange={(event) => setUsername(event.target.value)}
           />
-        </label>
+        </TextField>
       </div>
       <div>
-        <label htmlFor="password">
+        <TextField id="outlined-basic" label="password" type="password" variant="outlined"
+          onChange={(event) => setPassword(event.target.value)}>
           Password:
           <input
-            type="password"
             name="password"
             required
             value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
+            />
+        </TextField>
       </div>
       <div>
         <input className="btn" type="submit" name="submit" value="Log In" />

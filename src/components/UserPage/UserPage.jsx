@@ -8,7 +8,11 @@ function UserPage() {
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
+      <p>This app will allow you to browse Available Furniture, sell items you no longer want
+        and edit/delete those items as needed. There is a heart icon on each item in the Browse
+        Furniture page that you indicates it as favorite of yours when clicked. You may navigate
+        to the different views through the menu at the top left.
+      </p>
       <LogOutButton className="btn" />
     </div>
   );

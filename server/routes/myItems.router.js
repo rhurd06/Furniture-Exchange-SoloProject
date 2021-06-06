@@ -19,17 +19,14 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 //update one of my items
-router.put('/:id', rejectUnauthenticated, (req, res) => {
-    let furniture = req.params.id;
-    console.log(req.furniture);
+router.put('/:id', (req, res) => {
+    let item = req.body.data;
+    console.log(req.body, req.params.id);
     let query = `UPDATE "furniture" SET picture_url=$2, cost=$3, location=$4, 
-                    description=$5, sold=$6 WHERE "furniture".id=$1;`;
-// console.log(req.body);
-    pool.query(query, [req.furniture, req.body.picture_url, req.body.cost, 
-        req.body.location, req.body.description, req.body.sold])
+                    description=$5, sold=$6 WHERE "id"=$1;`;
+    pool.query(query, [req.params.id, item.picture_url, item.cost, 
+        item.location, item.description, item.sold])
         .then(() => {
-            // console.log('Mark sold');
-            // res.sendStatus(201);
                 pool.query(`UPDATE "user" SET email=$2
                             WHERE "id"=$1;`,
                             [req.user.id, req.user.email])
@@ -51,7 +48,8 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const query = `DELETE FROM "furniture" WHERE id=$1 AND user_id=$2;`;
     pool.query(query, [req.params.id, req.user.id])
-        .then(() => { res.sendStatus(201) 
+        .then(() => { 
+            res.sendStatus(201) 
         })
         .catch(error => {
             console.log('Error deleting item', error);

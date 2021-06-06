@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-//Material UI
 import { TextField } from '@material-ui/core';
 
 
@@ -9,7 +7,6 @@ function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
@@ -21,7 +18,6 @@ function RegisterForm() {
       payload: {
         username: username,
         email: email,
-        phoneNumber: phoneNumber,
         password: password,
       },
     });
@@ -60,22 +56,10 @@ function RegisterForm() {
         </TextField>
       </div>
       <div>
-        <TextField id="outlined-basic" label="phoneNumber" variant="outlined"
-          onChange={(event) => setPhoneNumber(event.target.value)}>
-          Phone Number:
-          <input
-            type="text"
-            name="phoneNumber"
-            value={phoneNumber}
-          />
-        </TextField>
-      </div>
-      <div>
-        <TextField id="outlined-basic" label="password" variant="outlined"
+        <TextField id="outlined-basic" label="password" type="password" variant="outlined"
           onChange={(event) => setPassword(event.target.value)}>
           Password:
           <input
-            type="password"
             name="password"
             value={password}
             required

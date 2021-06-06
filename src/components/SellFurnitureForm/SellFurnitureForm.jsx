@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
+import './SellFurnitureForm.css';
+
 //Material UI
-import { MenuItem, TextField, Button } from '@material-ui/core';
+import { MenuItem, TextField, Button, AppBar,Toolbar, Typography } from '@material-ui/core';
 import useStyles from './styles';
+import WeekendTwoToneIcon from '@material-ui/icons/WeekendTwoTone';
 
 const SellFurnitureForm = () => {
     const dispatch = useDispatch();
@@ -40,7 +43,7 @@ const SellFurnitureForm = () => {
         setPreferredContact('');
         setUsername('');
         setFurnitureType('');
-        history.push('/browseFurnitureExpandable');
+        history.push('/browseFurniture');
     };
 
     const handleChange = (event) => {
@@ -48,8 +51,18 @@ const SellFurnitureForm = () => {
     };
 
     return(
-
-        <form onSubmit={submitForm}>
+      <div>
+         <AppBar position="relative">
+                {/* Banner across the top with sofa icon */}
+                <Toolbar className="appBar">
+                    <WeekendTwoToneIcon className={classes.icon} />
+                    <Typography align="center" variant="h3">
+                        Add an Item To Sell
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+        {/* <h1 className="header">Add an Item To Sell</h1> */}
+        <form className="form" onSubmit={submitForm}>
             <div>
             <TextField id="outlined-basic" label="pictureUrl" variant="outlined" 
               onChange={(event) => setPictureUrl(event.target.value)}>
@@ -121,8 +134,9 @@ const SellFurnitureForm = () => {
               />
             </TextField>
           </div>
-          <Button size="small" color="primary" type="submit">Add Furniture Item</Button>
+          <Button size="small" color="primary" variant="contained" type="submit">Add Furniture Item</Button>
         </form>
+      </div>
     );
 };
 
