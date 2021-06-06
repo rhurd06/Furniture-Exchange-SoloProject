@@ -34,8 +34,7 @@ const SellFurnitureForm = () => {
         dispatch({ type: 'POST_FURNITURE', payload: {picture_url: picture_url, cost: cost, 
                 location: location, description: description, furnitureType: furnitureType, 
                 preferredContact: preferredContact, user_id: user_id} });
-
-        // history.push('/itemView');
+                
         setPictureUrl('');
         setCost(0);
         setLocation('');
