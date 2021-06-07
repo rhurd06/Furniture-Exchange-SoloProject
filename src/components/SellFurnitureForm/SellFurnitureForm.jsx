@@ -23,6 +23,9 @@ const SellFurnitureForm = () => {
     const [user_id, setUsername] = useState();
     const [furnitureType, setFurnitureType] = useState();
 
+    // const [itemInfo, setItemInfo] = useState([]);
+    const [infoPicUrl, setInfoPicUrl] = useState('');
+
     useEffect(() => {
         dispatch({ type: 'FETCH_FURNITURE_TYPE' })
     }, []);
@@ -45,9 +48,20 @@ const SellFurnitureForm = () => {
         history.push('/browseFurniture');
     };
 
-    const handleChange = (event) => {
+   const handleChange = (event) => {
         setFurnitureType(event.target.value);
     };
+
+    infoPicUrl = '/images/greySofa.png';
+
+  //   itemInfo = [
+  //     {picture_url: '/images/greySofa.png',
+  //     cost: 70,
+  //     location: 'Minneapolis',
+  //     description: 'greySofa',
+  //     preferredContact: 'lamar@gmail.com',
+  //     furnitureType: 1}
+  //  ]
 
     return(
       <div>
@@ -55,7 +69,9 @@ const SellFurnitureForm = () => {
                 {/* Banner across the top with sofa icon */}
                 <Toolbar className="appBar">
                     <WeekendTwoToneIcon className={classes.icon} />
-                    <Typography align="center" variant="h3">
+                    <Typography align="center" variant="h3" 
+                    onClick={(event) => setInfoPicUrl(infoPicUrl)}
+                    >
                         Add an Item To Sell
                     </Typography>
                 </Toolbar>
