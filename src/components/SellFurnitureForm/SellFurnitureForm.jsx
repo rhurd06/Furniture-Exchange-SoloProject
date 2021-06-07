@@ -23,6 +23,9 @@ const SellFurnitureForm = () => {
     const [user_id, setUsername] = useState();
     const [furnitureType, setFurnitureType] = useState();
 
+    // const [itemInfo, setItemInfo] = useState([]);
+    // const [infoPicUrl, setInfoPicUrl] = useState('');
+
     useEffect(() => {
         dispatch({ type: 'FETCH_FURNITURE_TYPE' })
     }, []);
@@ -45,17 +48,30 @@ const SellFurnitureForm = () => {
         history.push('/browseFurniture');
     };
 
-    const handleChange = (event) => {
+   const handleChange = (event) => {
         setFurnitureType(event.target.value);
     };
 
+    // infoPicUrl = '/images/greySofa.png';
+
+    const setItemInfo = () => {
+      setPictureUrl('/images/greySofa.png');
+      setCost(70);
+      setLocation('Minneapolis');
+      setDescription('greySofa');
+      setPreferredContact('lamar@gmail.com');
+      // setFurnitureType ('1')
+      console.log('clicked');
+   };
+
     return(
       <div>
-         <AppBar position="relative">
+         <AppBar position="relative" onClick={() => setItemInfo()}>
                 {/* Banner across the top with sofa icon */}
                 <Toolbar className="appBar">
                     <WeekendTwoToneIcon className={classes.icon} />
-                    <Typography align="center" variant="h3">
+                    <Typography align="center" variant="h3"
+                    >
                         Add an Item To Sell
                     </Typography>
                 </Toolbar>
@@ -64,48 +80,44 @@ const SellFurnitureForm = () => {
         <form className="form" onSubmit={submitForm}>
             <div>
             <TextField id="outlined-basic" label="pictureUrl" variant="outlined" 
-              onChange={(event) => setPictureUrl(event.target.value)}>
+              onChange={(event) => setPictureUrl(event.target.value)} value={picture_url}>
                 Image URL:
                     <input
                         type="text"
                         name="pictureUrl"
-                        value={picture_url}
                         required
                     />
             </TextField>
             </div>
             <div>
             <TextField id="outlined-basic" label="cost" variant="outlined" 
-                onChange={(event) => setCost(event.target.value)}>
+                onChange={(event) => setCost(event.target.value)} value={cost}>
               Cost:
               <input
                 type="text"
                 name="cost"
-                value={cost}
                 required
               />
             </TextField>
           </div>
           <div>
             <TextField id="outlined-basic" label="location" variant="outlined"
-              onChange={(event) => setLocation(event.target.value)}>
+              onChange={(event) => setLocation(event.target.value)} value={location}>
               Location:
               <input
                 type="text"
                 name="location"
-                value={location}
                 required
               />
             </TextField>
           </div>
           <div>
             <TextField id="outlined-basic" label="description" variant="outlined" 
-              onChange={(event) => setDescription(event.target.value)}>
+              onChange={(event) => setDescription(event.target.value)} value={description}>
               Description:
               <input
                 type="text"
                 name="description"
-                value={description}
                 required
               />
             </TextField>
@@ -123,12 +135,11 @@ const SellFurnitureForm = () => {
           </div>
           <div>
             <TextField id="outlined-basic" label="preferredContact" variant="outlined" 
-              onChange={(event) => setPreferredContact(event.target.value)}>
+              onChange={(event) => setPreferredContact(event.target.value)} value={preferredContact}>
               Preferred Contact Method:
               <input
                 type="text"
                 name="preferredContact"
-                value={preferredContact}
                 required
               />
             </TextField>
