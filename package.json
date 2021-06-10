@@ -33,7 +33,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "supertest": "^6.1.3"
   },
   "browserslist": [
     ">0.2%",
@@ -41,5 +42,18 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "heroku-run-build-script": true
+  "heroku-run-build-script": true,
+  "description": "## Description",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhurd06/Furniture-Exchange-SoloProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rhurd06/Furniture-Exchange-SoloProject/issues"
+  },
+  "homepage": "https://github.com/rhurd06/Furniture-Exchange-SoloProject#readme"
 }
