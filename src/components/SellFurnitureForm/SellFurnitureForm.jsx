@@ -62,7 +62,7 @@ const SellFurnitureForm = () => {
     //   setPreferredContact('lamar@gmail.com');
     //   // setFurnitureType ('1')
     //   console.log('clicked');
-   };
+  //  };
 
     return(
       <div>
