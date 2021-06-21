@@ -54,19 +54,21 @@ const SellFurnitureForm = () => {
 
     // infoPicUrl = '/images/greySofa.png';
 
-    const setItemInfo = () => {
-      setPictureUrl('/images/greySofa.png');
-      setCost(70);
-      setLocation('Minneapolis');
-      setDescription('greySofa');
-      setPreferredContact('lamar@gmail.com');
-      // setFurnitureType ('1')
-      console.log('clicked');
+    // const setItemInfo = () => {
+    //   setPictureUrl('/images/greySofa.png');
+    //   setCost(70);
+    //   setLocation('Minneapolis');
+    //   setDescription('greySofa');
+    //   setPreferredContact('lamar@gmail.com');
+    //   // setFurnitureType ('1')
+    //   console.log('clicked');
    };
 
     return(
       <div>
-         <AppBar position="relative" onClick={() => setItemInfo()}>
+         <AppBar position="relative" 
+        //  onClick={() => setItemInfo()}
+         >
                 {/* Banner across the top with sofa icon */}
                 <Toolbar className="appBar">
                     <WeekendTwoToneIcon className={classes.icon} />
