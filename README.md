@@ -49,7 +49,7 @@ The Info page informs the user of the technologies used to create this app.
 - Material UI
 - JavaScript
 - React.js
-- React-saga
+- Redux-saga
 - Redux
 - Node.js
 - JSON
