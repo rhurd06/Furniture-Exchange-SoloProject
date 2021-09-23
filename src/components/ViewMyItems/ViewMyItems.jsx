@@ -63,11 +63,11 @@ function myFurnitureItems() {
                 </div>
                 {/* the next portion has MUI styling to create cards for each item */}
                 <Container className={classes.cardGrid} maxWidth="md" >
-                    <Grid container spacing={4}>
+                    <Grid style={{backgroundColor: "lightseagreen"}} container spacing={4}>
                         {myFurniture.map((furniture, index) => {
                             return  <Grid item key={index} xs={12} sm={6} md={4} >
                             <Card className={classes.card}>
-                                <CardContent>
+                                <CardContent style={{backgroundColor: "black"}}>
                                 <img
                                     image src={furniture.picture_url}
                                 />

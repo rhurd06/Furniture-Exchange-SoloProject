@@ -37,7 +37,7 @@ function FurnitureCardTemplate({furniture, i}){
 
 return(
 <Card className={classes.card}>
-                            <CardContent>
+                            <CardContent style={{backgroundColor: "black"}}>
                                 <img
                                     image src={furniture.picture_url}
                                 />

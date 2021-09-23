@@ -52,11 +52,11 @@ function myFavoriteItems() {
             </AppBar>
             <main>
                 <Container className={classes.cardGrid} maxWidth="md" >
-                    <Grid container spacing={4}>
+                    <Grid style={{backgroundColor: "lightseagreen"}} container spacing={4}>
                         {myFavorites.map((furniture) => {
                             return  <Grid item key={furniture.id} xs={12} sm={6} md={4} >
                             <Card className={classes.card}>
-                                <CardContent>
+                                <CardContent style={{backgroundColor: "black"}}>
                                 <img
                                     image src={furniture.picture_url}
                                 />
