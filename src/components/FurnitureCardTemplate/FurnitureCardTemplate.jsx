@@ -41,20 +41,20 @@ return(
                                 <img
                                     image src={furniture.picture_url}
                                     width="400px"
-                                    height="200px"
+                                    height="300px"
                                 />
-                            <Typography> Cost: ${furniture.cost} </Typography>
                             </CardContent>
-                            <CardActions disableSpacing>
+                            <CardActions >
                                 <IconButton 
                                 onClick={() => handleAddToFavorites(i)}
                                 aria-label="addToFavorites">
                                     {favorite ? (
                                         <FavoriteIcon color="secondary" />
-                                    ) : (
-                                        <FavoriteIcon />
-                                    )}
+                                        ) : (
+                                            <FavoriteIcon />
+                                            )}
                                 </IconButton>
+                                <Typography> Cost: ${furniture.cost} </Typography>
                                 <IconButton
                                 onClick={() => handleExpandClick(i)}
                                 aria-expanded={expandedId === i}
