@@ -25,6 +25,11 @@ There is a View My Favorites page so users can see the items they marked as favo
 
 The Info page informs the user of the technologies used to create this app.
 
+Updated wireframes:
+![Browse](./wireframes/updatedbrowse.png)
+![MyItems](./wireframes/updatedmyItems.png)
+![Favorites](./wireframes/updatedfavorites.png)
+
 ## Installation
 
 1. Clone this repository and open in VS Code (or your preferred code editor)
